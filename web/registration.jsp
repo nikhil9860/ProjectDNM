@@ -129,7 +129,7 @@
 								<div class="md-form">
 									<i class="fa fa-university prefix"></i>
 									<input type="text" id="form5" class="form-control">
-									<label for="form5">Qulifiaction</label>
+									<label for="form5">Qualification</label>
 								</div>
 							</div>
 							
