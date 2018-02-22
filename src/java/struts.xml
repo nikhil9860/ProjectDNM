@@ -7,12 +7,18 @@
     <package name="default" extends="struts-default">
         
        
-        <action name="AdminLogin" class="com.java.classfiles.AdminLogin" >
+        <action name="AdminLogin" class="com.java.admin.classfiles.AdminLogin" >
             
             <result name="true">AdminDashboard.jsp</result>
             <result name="false">LoginAdmin.jsp</result>
             
         </action> 
+        
+        <action name="DoctorRegister" class="com.java.admin.classfiles.DrRegisterProcess">
+            
+            <result name="true">AdminDashboard.jsp</result>   
+            
+        </action>
         
     </package>
 </struts>

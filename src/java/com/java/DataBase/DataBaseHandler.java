@@ -27,8 +27,6 @@ public class DataBaseHandler {
             
             con = DriverManager.getConnection("jdbc:mysql://localhost/DNM","root","");
             
-            
-            
             return con ;
             
         } catch (SQLException ex) {
@@ -40,5 +38,17 @@ public class DataBaseHandler {
         return null;
         
     }
+    
+    
+    public static boolean doInsert(){
+        try{
+            
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
     
 }
