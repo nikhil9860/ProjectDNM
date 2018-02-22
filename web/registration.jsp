@@ -139,24 +139,24 @@
 								<!--<i class="fa fa-user prefix"></i>-->
                                                                 <select name="gender" required="" class="form-control"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
-								 <option value="1">Male</option>
-								 <option value="2">Female</option>
+								 <option value="Male">Male</option>
+								 <option value="Female">Female</option>
 								 </select>
 							</div>
 							<div class="col-md-4">
 								<!--File Input-->
                                                                 <select class="form-control" name="category" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="1">Dermatologist</option>
-													<option value="2">Cardiologist</option>
-													<option value="3">E-N-T Specialist</option>
-													<option value="4">Dentist</option>
-													<option value="5">Ayurveda</option>
-													<option value="6">Homeopath</option>
-													<option value="7">Psychologist</option>
-													<option value="8">Dietition</option>
-													<option value="9">Neurologist</option>
-													<option value="10">Orthodentist</option>
+								 <option value="Dermatologist">Dermatologist</option>
+								<option value="Cardiologist">Cardiologist</option>
+								<option value="E-N-T Specialist">E-N-T Specialist</option>
+								<option value="Dentist">Dentist</option>
+								<option value="Ayurveda">Ayurveda</option>
+								<option value="Homeopath">Homeopath</option>
+								<option value="Psychologist">Psychologist</option>
+								<option value="Dietition">Dietition</option>
+								<option value="Neurologist">Neurologist</option>
+								<option value="Orthodentist">Orthodentist</option>
 								 </select>
 							</div>
 						</div>
@@ -181,7 +181,7 @@
                                                                         <input type="text" id="form7" name="clinicaddress"  class="form-control">
 									<label for="form7">Clinic Address</label>
 
-                                                                        <input type="hidden" id="cordinates"> 
+                                                                        <input type="hidden" id="cordinates" name="cordinate"> 
 								</div>
 								</div>
 								<div class="col-md-2">
@@ -196,7 +196,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form8" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
