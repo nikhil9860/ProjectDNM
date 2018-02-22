@@ -60,7 +60,7 @@
 
 <body class="fixed-sn elegant-white-skin">
     
-    
+    <form action="DoctorRegister" method="post">
             <div class="container">
 		<div class="row">
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
@@ -83,8 +83,8 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" required id="fullname" required="" class="form-control">
-									<label for="form1">Full name</label>
+                                                                        <input type="text" name="fullname" required="" class="form-control">
+									<label for="fullname">Full name</label>
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -93,7 +93,7 @@
 									<div class="file-field">
 										<div class="btn btn-primary btn-sm">
 											<span>Choose file</span>
-                                                                                        <input type="file" id="picture" >
+                                                                                        <input type="file" required="" name="picture" >
 										</div>
 										<div class="file-path-wrapper">
 											<input class="file-path validate" type="text" placeholder="Upload your file">
@@ -112,15 +112,15 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-									<input type="text" id="form3" class="form-control">
-									<label for="form3">Email ID</label>
+                                                                        <input type="email" name="doctor_email" required="" class="form-control">
+									<label for="doctor_email">Email ID</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form4" class="form-control">
-									<label for="form4">Contact No.</label>
+                                                                        <input type="text" name="doctor_contact_number" minlength="10" maxlength="10" required="" class="form-control">
+									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
 						</div>
@@ -128,8 +128,8 @@
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-university prefix"></i>
-									<input type="text" id="form5" class="form-control">
-									<label for="form5">Qualification</label>
+                                                                        <input type="text" name="qualification" required="" class="form-control">
+									<label for="Qualification">Qualification</label>
 								</div>
 							</div>
 							
@@ -137,7 +137,7 @@
 							<div class="col-md-4">
 								<!--File Input-->
 								<!--<i class="fa fa-user prefix"></i>-->
-								 <select class="form-control"> 
+                                                                <select name="gender" required="" class="form-control"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
 								 <option value="1">Male</option>
 								 <option value="2">Female</option>
@@ -145,7 +145,7 @@
 							</div>
 							<div class="col-md-4">
 								<!--File Input-->
-								 <select class="form-control"> 
+                                                                <select class="form-control" name="category" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
 								 <option value="1">Dermatologist</option>
 													<option value="2">Cardiologist</option>
@@ -168,15 +168,19 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>	
-									<input type="text" id="form6" class="form-control">
+                                                                        <input type="text" id="form6" name="clinicname" class="form-control">
 									<label for="form6">Clinic Name</label>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>
-                                                                        <input type="text" id="form7"  class="form-control">
-									
+
+                                                                     
+						
+                                                                        <input type="text" id="form7" name="clinicaddress"  class="form-control">
+									<label for="form7">Clinic Address</label>
+
                                                                         <input type="hidden" id="cordinates"> 
 								</div>
 								</div>
@@ -199,7 +203,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form9" class="form-control">
+                                                                        <input type="text" id="form9" name="clinic_landline" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
@@ -213,19 +217,19 @@
 								<!--Input groups-->
 								<div class="md-form input-group">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form input-group">
 								<i class="fa fa-lock prefix"></i>
-									<input type="password" class="form-control" placeholder="Doctors Password" aria-describedby="basic-addon2">
+                                                                <input type="password" class="form-control" name="password" placeholder="Doctors Password" aria-describedby="basic-addon2">
 									 
 								</div>
 							</div>
 						</div>
 					<div class="modal-footer text-xs-center">
-                                            <button type="button" class="btn btn-primary" onclick="location.href='reg1.jsp'"><i class="fa fa-save left"></i> Save And Next</button>
+                                            <input type="submit" class="btn btn-primary" value="Save And Next" >
 					</div>
 
 				</div>
@@ -260,7 +264,7 @@ function setLocationPopUp(){
 	<script type="text/javascript">
 
 	</script>
-        
+    </form>       
 </body>
 
 </html>
