@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geocoding service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+         width: 55%;
+        height: 350px;
+        margin-top: 20px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <center> <div id="map"></div>
+      Cordinates<input type="text"  id="cordinate"><br>
+
+    Enter Address<input type="text"  id="address"><br>
+    <input type="submit" value="search" id="submit">
+
+    <input type="button" value="set address" onclick="setAddress()">
+
+    </center>
+    <script>
+
+      var infowindow;
+
+      
+      function setAddress(){
+        if (window.opener != null && !window.opener.closed) {
+            var addresstext = window.opener.document.getElementById("form7");
+            addresstext.value = document.getElementById("address").value;
+            var cordinatetext=window.opener.document.getElementById("cordinates");
+            cordinatetext.value=document.getElementById("cordinate").value;
+        }
+        window.close();
+    }
+      
+
+
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat:20.5937, lng: 78.9629}
+        });
+        var geocoder = new google.maps.Geocoder();
+        infowindow = new google.maps.InfoWindow;
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map,infowindow);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap,infowindow) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });infowindow.setContent(results[0].formatted_address);
+              infowindow.open(map, marker); 
+              var add = new String(results[0].formatted_address);
+              var cord=marker.getPosition();
+              document.getElementById('cordinate').value=cord;
+              document.getElementById('address').value=add;
+
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1TQHU6VKit7q6NOXb8LMG4iQkKp6SGHA &callback=initMap">
+    </script>
+  </body>
+</html>

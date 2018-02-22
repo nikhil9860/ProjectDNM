@@ -1,0 +1,25 @@
+/*custom css*/
+
+
+.logo{
+    margin-top:10%;
+    z-index:99999999;
+    display:inline !important;
+}
+.top-nav-collapse {
+    background-color: #4B515D;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background-color: #4B515D;
+    }
+}
+
+footer.page-footer {
+    background-color: #3E4551;
+}
+
+.md-pills.pills-primary .nav-item .nav-link.active {
+    background-color: #00bcd4;
+}
