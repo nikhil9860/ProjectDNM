@@ -57,15 +57,6 @@
 	</style>
 </head>
 
-<script type="text/javascript">
-	
-var popup ;
-
-function setLocationPopUp(){
-	popup = window.open("getlocations.html", "Popup", "width=700,height=500");
-}	
-
-</script>	
 
 <body class="fixed-sn elegant-white-skin">
     
@@ -92,7 +83,7 @@ function setLocationPopUp(){
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" id="fullname" required="" class="form-control">
+                                                                        <input type="text" required id="fullname" required="" class="form-control">
 									<label for="form1">Full name</label>
 								</div>
 							</div>
@@ -184,15 +175,15 @@ function setLocationPopUp(){
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>
-									<input type="text" id="form7"  class="form-control">
-									<label for="form7">Clinic Address</label>
+                                                                        <input type="text" id="form7"  class="form-control">
+									
                                                                         <input type="hidden" id="cordinates"> 
 								</div>
 								</div>
 								<div class="col-md-2">
 									<div class="md-form">
 										<button type="button" class="btn btn-primary" 
-										onclick="setLocationPopUp()" > MAP</button></div>
+										onclick="setLocationPopUp()" > Clinic Address</button></div>
                                                                              
 								</div>
 								</div>
@@ -242,7 +233,16 @@ function setLocationPopUp(){
 		</div>
 	</div>
     </div>
-       
+       <script type="text/javascript">
+	
+var popup ;
+
+function setLocationPopUp(){
+	popup = window.open("getlocations.html", "Popup", "width=700,height=500");
+}	
+
+</script>	
+
 
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
