@@ -72,6 +72,9 @@
                         <div class="text-xs-center">
                             <button class="btn btn-primary" type="submit">Login</button>
                         </div>
+                          <div class="text-xs-center">
+                              <a href="forgotPasswrd.jsp">Forgot Password</a>
+                        </div>
 
                     </div>
 
