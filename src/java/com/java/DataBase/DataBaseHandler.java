@@ -7,6 +7,7 @@ package com.java.DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,8 +41,10 @@ public class DataBaseHandler {
     }
     
     
-    public static boolean doInsert(){
+    public static boolean doInsert(PreparedStatement ps){
         try{
+                
+            ps.executeUpdate();
             
             return true;
         }catch(Exception e){

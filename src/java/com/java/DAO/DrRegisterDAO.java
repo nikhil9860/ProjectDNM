@@ -22,9 +22,10 @@ public class DrRegisterDAO {
     
     public static boolean register(DrRegisterPojo pojo){
         
-        String sql="insert into Doctors values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into Doctors(doctor_id,doctor_name,doctor_uname,password,clinic_name,clinic_address,personal_phone_no,clinic_phone_no,clinic_landline_no,doctor_email_id,doctor_qualification,photo,gender,address_cordinates)   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
+            ps.setString(1, "1");
             ps.setString(2,pojo.getFullname());
             ps.setString(3, pojo.getUsername());
             ps.setString(4, pojo.getPassword());
@@ -38,9 +39,14 @@ public class DrRegisterDAO {
             ps.setString(12, pojo.getPicture());
             ps.setString(13, pojo.getGender());
             ps.setString(14, pojo.getCordinate());
-            ps.setString(15, pojo.getCategory());
-            ps.executeUpdate();
-            return  true;
+            //ps.setString(15, "1");
+            
+            if(DataBaseHandler.doInsert(ps)){
+                return  true;
+            }
+            
+            
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(DrRegisterDAO.class.getName()).log(Level.SEVERE, null, ex);
