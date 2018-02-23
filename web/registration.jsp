@@ -145,9 +145,10 @@
 							</div>
 							<div class="col-md-4">
 								<!--File Input-->
-                                                                <select class="form-control" name="category" > 
+                                                                
+                                                                <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="Dermatologist">Dermatologist</option>
+								 <option value="">Dermatologist</option>
 								<option value="Cardiologist">Cardiologist</option>
 								<option value="E-N-T Specialist">E-N-T Specialist</option>
 								<option value="Dentist">Dentist</option>
@@ -168,7 +169,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>	
-                                                                        <input type="text" id="form6" name="clinicname" class="form-control">
+                                                                        <input type="text" id="form6" name="clinicname" required="" class="form-control">
 									<label for="form6">Clinic Name</label>
 								</div>
 							</div>
@@ -178,7 +179,7 @@
 
                                                                      
 						
-                                                                        <input type="text" id="form7" name="clinicaddress"  class="form-control">
+                                                                        <input type="text" id="form7" name="clinicaddress" required=""  class="form-control">
 									<label for="form7">Clinic Address</label>
 
                                                                         <input type="hidden" id="cordinates" name="cordinate"> 
@@ -196,7 +197,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
@@ -217,13 +218,13 @@
 								<!--Input groups-->
 								<div class="md-form input-group">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" required="" name="username" placeholder="Username" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form input-group">
 								<i class="fa fa-lock prefix"></i>
-                                                                <input type="password" class="form-control" name="password" placeholder="Doctors Password" aria-describedby="basic-addon2">
+                                                                <input type="password" class="form-control" required="" name="password" placeholder="Doctors Password" aria-describedby="basic-addon2">
 									 
 								</div>
 							</div>
