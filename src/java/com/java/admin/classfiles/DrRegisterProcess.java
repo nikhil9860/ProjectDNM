@@ -24,8 +24,15 @@ public class DrRegisterProcess implements ModelDriven<DrRegisterPojo> {
     }
     
     public String execute(){
-            DrRegisterDAO.register(pojo);
             
-        return "true";
+            if(DrRegisterDAO.register(pojo)){
+                
+                        return "true";
+            }
+            
+                return "false";
+            
+            
+
     }
 }

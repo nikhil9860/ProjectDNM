@@ -8,6 +8,10 @@ package com.java.DAO;
 import com.java.DataBase.DataBaseHandler;
 import java.sql.DatabaseMetaData;
 import com.java.POJO.DrRegisterPojo;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,15 +20,36 @@ import com.java.POJO.DrRegisterPojo;
 public class DrRegisterDAO {
     
     
-    public static void register(DrRegisterPojo pojo){
+    public static boolean register(DrRegisterPojo pojo){
         
-//        if(DataBaseHandler.doInsert()){
-//            return true;
-//        }
-//        return false;
+        String sql="insert into Doctors values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
+            ps.setString(2,pojo.getFullname());
+            ps.setString(3, pojo.getUsername());
+            ps.setString(4, pojo.getPassword());
+            ps.setString(5, pojo.getClinicname());
+            ps.setString(6, pojo.getClinicaddress());
+            ps.setString(7, pojo.getDoctor_contact_number());
+            ps.setString(8, pojo.getClinic_contact());
+            ps.setString(9, pojo.getClinic_landline());
+            ps.setString(10, pojo.getDoctor_email());
+            ps.setString(11, pojo.getQualification());
+            ps.setString(12, pojo.getPicture());
+            ps.setString(13, pojo.getGender());
+            ps.setString(14, pojo.getCordinate());
+            ps.setString(15, pojo.getCategory());
+            ps.executeUpdate();
+            return  true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DrRegisterDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-            System.out.println(pojo.getDoctor_email());
-
+        
+        
+            
+        return  false;
     }
     
 }
