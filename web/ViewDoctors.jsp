@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@include file="header.html" %>
 <head>
 
 	<meta charset="utf-8">
@@ -21,7 +21,7 @@
 
 <body class="fixed-sn elegant-white-skin">
 	<!--Double Navigation-->
-	        <%@include file="header.html" %>
+	        
 	<!--/Double Navigation-->
 	<!--Main layout-->
 	<main class="">
@@ -110,16 +110,14 @@
 				</div>
 				<!--/Main row-->
 
-			</section>
+			
 			<!--/Section: Main chart-->
 			<!--Section: Charts-->
 			<!--/Section: Charts-->
 			<!--Section: Notifications-->
 			<!--/Section: Notifications-->
 			<!--Classic admin cards-->
-			
 
-		</div>
 	</main>
 	<!--/Main layout-->
 

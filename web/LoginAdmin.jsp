@@ -60,20 +60,20 @@
                         <!--Body-->
                         <div class="md-form">
                             <i class="fa fa-envelope prefix"></i>
-                            <input type="text" id="form2" name="username" class="form-control validate">
+                            <input type="text" id="form2" name="username" class="form-control validate" required>
                             <label for="form2" data-error="wrong" data-success="right">Your Username</label>
                         </div>
 
                         <div class="md-form">
                             <i class="fa fa-lock prefix"></i>
-                            <input type="password" id="form4" name="password" class="form-control validate">
+                            <input type="password" id="form4" name="password" class="form-control validate" required>
                             <label for="form4" data-error="wrong" data-success="right">Your password</label>
                         </div>
                         <div class="text-xs-center">
                             <button class="btn btn-primary" type="submit">Login</button>
                         </div>
                           <div class="text-xs-center">
-                              <a href="forgotPasswrd.jsp">Forgot Password</a>
+                              <a href="ForgotPassword.jsp">Forgot Password</a>
                         </div>
 
                     </div>
