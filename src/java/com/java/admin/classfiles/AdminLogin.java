@@ -5,6 +5,7 @@
  */
 package com.java.admin.classfiles;
 
+import com.java.DataBase.DataBaseHandler;
 import com.java.POJO.AdminPojo;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -26,13 +27,12 @@ public class AdminLogin implements ModelDriven<AdminPojo>{
         String sql = "select * from Admin where admin_username='"+pojo.getUsername()+"'and admin_password='"+pojo.getPassword()+"'";
         
         
-            if(pojo.getUsername().equals("admin") && pojo.getPassword().equals("admin")){
-                System.out.println(sql);
+            if(DataBaseHandler.doLogin(sql)){
+                
                 return "true";
             }
-        //System.out.print(pojo);
+        
         return "false";
     }
-     
-    
+        
 }
