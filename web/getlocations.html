@@ -50,14 +50,15 @@
 
       
       function setAddress(){
+        
         if (window.opener != null && !window.opener.closed) {
             var addresstext = window.opener.document.getElementById("form7");
             addresstext.value = document.getElementById("address").value;
             var cordinatetext=window.opener.document.getElementById("cordinates");
             cordinatetext.value=document.getElementById("cordinate").value;
-        }
+        }   
         window.close();
-    }
+          }
       
 
 

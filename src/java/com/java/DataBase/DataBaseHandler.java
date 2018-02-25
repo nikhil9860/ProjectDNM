@@ -8,7 +8,9 @@ package com.java.DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,6 +40,24 @@ public class DataBaseHandler {
         
         return null;
         
+    }
+    
+    public static boolean doLogin(String sql){
+        
+        try{
+            
+            Statement s = getConnection().createStatement(); 
+            ResultSet rs = s.executeQuery(sql);
+            if(rs.next()){
+                return true;
+            }
+            
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return false;
     }
     
     

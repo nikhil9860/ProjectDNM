@@ -22,8 +22,12 @@ public class AdminLogin implements ModelDriven<AdminPojo>{
     }
     
     public String execute(){
+            
+        String sql = "select * from Admin where admin_username='"+pojo.getUsername()+"'and admin_password='"+pojo.getPassword()+"'";
+        
         
             if(pojo.getUsername().equals("admin") && pojo.getPassword().equals("admin")){
+                System.out.println(sql);
                 return "true";
             }
         //System.out.print(pojo);

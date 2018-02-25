@@ -40,7 +40,7 @@
 
 
 <body class="fixed-sn elegant-white-skin">
-
+    <form action="AdminLogin" method="post">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-5 login-form mx-auto float-xs-none">
@@ -57,13 +57,13 @@
                         <!--Body-->
                         <div class="md-form">
                             <i class="fa fa-envelope prefix"></i>
-                            <input type="text" id="form2" class="form-control validate">
+                            <input type="text" id="form2" name="username" class="form-control validate">
                             <label for="form2" data-error="wrong" data-success="right">Your Username</label>
                         </div>
 
                         <div class="md-form">
                             <i class="fa fa-lock prefix"></i>
-                            <input type="password" id="form4" class="form-control validate">
+                            <input type="password" name="password" id="form4" class="form-control validate">
                             <label for="form4" data-error="wrong" data-success="right">Your password</label>
                         </div>
                         <div class="text-xs-center">
@@ -96,6 +96,7 @@
 	<!-- MDB core JavaScript -->
 	<!--<script type="text/javascript" src="http://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
 	<script src="js/mdb.min.js"></script>
+    </form>
 </body>
 
 </html>
