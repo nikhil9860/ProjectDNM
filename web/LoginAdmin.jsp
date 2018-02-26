@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib  prefix="s" uri="/struts-tags" %>
 <html lang="en">
 
 <head>
@@ -60,15 +61,21 @@
                         <!--Body-->
                         <div class="md-form">
                             <i class="fa fa-envelope prefix"></i>
-                            <input type="text" id="form2" name="username" class="form-control validate">
+                            <input type="text" id="form2" required="" name="username" class="form-control validate">
                             <label for="form2" data-error="wrong" data-success="right">Your Username</label>
                         </div>
 
                         <div class="md-form">
                             <i class="fa fa-lock prefix"></i>
-                            <input type="password" id="form4" name="password" class="form-control validate">
+                            <input type="password" id="form4" required="" name="password" class="form-control validate">
                             <label for="form4" data-error="wrong" data-success="right">Your password</label>
                         </div>
+                        <s:if test="hasActionErrors()">
+                            
+                            <div class="text-xs-center" style="color: red" >
+                            <s:actionerror />
+                        </div>
+                        </s:if>
                         <div class="text-xs-center">
                             <button class="btn btn-primary" type="submit">Login</button>
                         </div>
