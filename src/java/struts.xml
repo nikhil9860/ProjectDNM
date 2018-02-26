@@ -9,8 +9,8 @@
        
         <action name="AdminLogin" class="com.java.admin.classfiles.AdminLogin" >
             
-            <result name="true">AdminDashboard.jsp</result>
-            <result name="false">LoginAdmin.jsp</result>
+            <result name="success">AdminDashboard.jsp</result>
+            <result name="error">LoginAdmin.jsp</result>
             
         </action> 
         

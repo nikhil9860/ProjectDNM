@@ -7,13 +7,15 @@ package com.java.admin.classfiles;
 
 import com.java.DataBase.DataBaseHandler;
 import com.java.POJO.AdminPojo;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.ValidationAware;
 
 /**
  *
  * @author nikhil
  */
-public class AdminLogin implements ModelDriven<AdminPojo>{
+public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,ValidationAware{
 
      AdminPojo pojo = new  AdminPojo();
     
@@ -22,6 +24,8 @@ public class AdminLogin implements ModelDriven<AdminPojo>{
         return pojo;
     }
     
+    
+    
     public String execute(){
             
         String sql = "select * from Admin where admin_username='"+pojo.getUsername()+"'and admin_password='"+pojo.getPassword()+"'";
@@ -29,10 +33,16 @@ public class AdminLogin implements ModelDriven<AdminPojo>{
         
             if(DataBaseHandler.doLogin(sql)){
                 
-                return "true";
+                return SUCCESS;
+                
+            }else{
+                
+                addActionError("Invalid Username or Password");
+                
+                return ERROR;
             }
         
-        return "false";
+        
     }
         
 }
