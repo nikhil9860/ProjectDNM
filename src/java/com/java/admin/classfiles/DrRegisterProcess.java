@@ -7,13 +7,15 @@ package com.java.admin.classfiles;
 
 import com.java.DAO.DrRegisterDAO;
 import com.java.POJO.DrRegisterPojo;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.ValidationAware;
 
 /**
  *
  * @author nikhil
  */
-public class DrRegisterProcess implements ModelDriven<DrRegisterPojo> {
+public class DrRegisterProcess extends ActionSupport implements ModelDriven<DrRegisterPojo>,ValidationAware {
 
     DrRegisterPojo pojo = new DrRegisterPojo();
     
@@ -27,12 +29,15 @@ public class DrRegisterProcess implements ModelDriven<DrRegisterPojo> {
             
             if(DrRegisterDAO.register(pojo)){
                 
-                        return "true";
+                        addActionMessage("Record Saved Susscefully");
+                        return SUCCESS;
             }
             
-                return "false";
-            
-            
+                addActionError("Email or Contact Number is Already Registered");
+                
+                return ERROR;
+                
+  
 
     }
 }

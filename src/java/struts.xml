@@ -16,8 +16,8 @@
         
         <action name="DoctorRegister" class="com.java.admin.classfiles.DrRegisterProcess">
             
-            <result name="true">AdminDashboard.jsp</result>   
-            <result name="false">LoginAdmin.jsp</result>
+            <result name="success">Registration.jsp</result>   
+            <result name="error">Registration.jsp</result>
         </action>
         
     </package>

@@ -70,9 +70,10 @@
                             <input type="password" id="form4" required="" name="password" class="form-control validate">
                             <label for="form4" data-error="wrong" data-success="right">Your password</label>
                         </div>
+                        
                         <s:if test="hasActionErrors()">
                             
-                            <div class="text-xs-center" style="color: red" >
+                            <div class="text-xs-center" style="color: red">
                             <s:actionerror />
                         </div>
                         </s:if>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib  prefix="s" uri="/struts-tags" %>
 <html lang="en">
 
 <head>
@@ -57,20 +58,11 @@
 	</style>
 </head>
 
-<script type="text/javascript">
-	
-var popup ;
-
-function setLocationPopUp(){
-	popup = window.open("getlocations.html", "Popup", "width=700,height=500");
-}	
-
-</script>	
 
 <body class="fixed-sn elegant-white-skin">
     
-    
-            <div class="container">
+    <form action="DoctorRegister" method="post">
+            <div class="container" >
 		<div class="row">
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
 
@@ -84,6 +76,21 @@ function setLocationPopUp(){
 						</div>
 
 						<div class="text-xs-center">
+                                                                <s:if test="hasActionErrors()">
+                            
+                                <div class="text-xs-center" style="color: red">
+                            <s:actionerror />
+                        </div>
+                        </s:if>
+                                
+                                <s:if test="hasActionMessages()">
+                                 
+                                    <div class="text-xs-center" style="color: green">
+                                        <s:actionmessage/>
+                                </s:if>
+
+
+				</div>
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
 					</div>
 				<!--Body-->
@@ -92,8 +99,8 @@ function setLocationPopUp(){
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" id="form1" class="form-control">
-									<label for="form1">Full name</label>
+                                                                        <input type="text" name="fullname" required="" class="form-control">
+									<label for="fullname">Full name</label>
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -102,7 +109,7 @@ function setLocationPopUp(){
 									<div class="file-field">
 										<div class="btn btn-primary btn-sm">
 											<span>Choose file</span>
-											<input type="file">
+                                                                                        <input type="file" required="" name="picture" >
 										</div>
 										<div class="file-path-wrapper">
 											<input class="file-path validate" type="text" placeholder="Upload your file">
@@ -121,15 +128,15 @@ function setLocationPopUp(){
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-									<input type="text" id="form3" class="form-control">
-									<label for="form3">Email ID</label>
+                                                                        <input type="email" id="doctor_email" onfocusout="setUserName()"  name="doctor_email" required="" class="form-control">
+									<label for="doctor_email">Email ID</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form4" class="form-control">
-									<label for="form4">Contact No.</label>
+                                                                        <input type="text" name="doctor_contact_number" minlength="10" maxlength="10" required="" class="form-control">
+									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
 						</div>
@@ -137,8 +144,8 @@ function setLocationPopUp(){
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-university prefix"></i>
-									<input type="text" id="form5" class="form-control">
-									<label for="form5">Qulifiaction</label>
+                                                                        <input type="text" name="qualification" required="" class="form-control">
+									<label for="Qualification">Qualification</label>
 								</div>
 							</div>
 							
@@ -146,26 +153,27 @@ function setLocationPopUp(){
 							<div class="col-md-4">
 								<!--File Input-->
 								<!--<i class="fa fa-user prefix"></i>-->
-								 <select class="form-control"> 
+                                                                <select name="gender" required="" class="form-control"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
-								 <option value="1">Male</option>
-								 <option value="2">Female</option>
+								 <option value="Male">Male</option>
+								 <option value="Female">Female</option>
 								 </select>
 							</div>
 							<div class="col-md-4">
 								<!--File Input-->
-								 <select class="form-control"> 
+                                                                
+                                                                <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="1">Dermatologist</option>
-													<option value="2">Cardiologist</option>
-													<option value="3">E-N-T Specialist</option>
-													<option value="4">Dentist</option>
-													<option value="5">Ayurveda</option>
-													<option value="6">Homeopath</option>
-													<option value="7">Psychologist</option>
-													<option value="8">Dietition</option>
-													<option value="9">Neurologist</option>
-													<option value="10">Orthodentist</option>
+								 <option value="">Dermatologist</option>
+								<option value="Cardiologist">Cardiologist</option>
+								<option value="E-N-T Specialist">E-N-T Specialist</option>
+								<option value="Dentist">Dentist</option>
+								<option value="Ayurveda">Ayurveda</option>
+								<option value="Homeopath">Homeopath</option>
+								<option value="Psychologist">Psychologist</option>
+								<option value="Dietition">Dietition</option>
+								<option value="Neurologist">Neurologist</option>
+								<option value="Orthodentist">Orthodentist</option>
 								 </select>
 							</div>
 						</div>
@@ -177,21 +185,27 @@ function setLocationPopUp(){
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>	
-									<input type="text" id="form6" class="form-control">
+                                                                        <input type="text" id="form6" name="clinicname" required="" class="form-control">
 									<label for="form6">Clinic Name</label>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>
-									<input type="text" id="form7"  class="form-control">
+
+                                                                     
+						
+                                                                        <input type="text" id="form7" name="clinicaddress" required=""  class="form-control">
 									<label for="form7">Clinic Address</label>
+
+                                                                        <input type="hidden" id="cordinates" name="cordinate"> 
 								</div>
 								</div>
 								<div class="col-md-2">
 									<div class="md-form">
 										<button type="button" class="btn btn-primary" 
-										onclick="setLocationPopUp()" > MAP</button></div>
+										onclick="setLocationPopUp()" > Clinic Address</button></div>
+                                                                             
 								</div>
 								</div>
 							
@@ -199,14 +213,14 @@ function setLocationPopUp(){
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form8" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="form9" class="form-control">
+                                                                        <input type="text" id="form9" name="clinic_landline" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
@@ -215,32 +229,50 @@ function setLocationPopUp(){
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>User Credentials</b></font>
 					</div>
 					
+                                
 						<div class="row">
 							<div class="col-md-6">
 								<!--Input groups-->
 								<div class="md-form input-group">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" id="username" readonly="" required=""  name="username" placeholder="Username" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form input-group">
 								<i class="fa fa-lock prefix"></i>
-									<input type="password" class="form-control" placeholder="Doctors Password" aria-describedby="basic-addon2">
+                                                                <input type="password" class="form-control" required="" name="password" placeholder="Doctors Password" aria-describedby="basic-addon2">
 									 
 								</div>
 							</div>
 						</div>
 					<div class="modal-footer text-xs-center">
-                                            <button type="button" class="btn btn-primary" onclick="location.href='reg1.jsp'"><i class="fa fa-save left"></i> Save And Next</button>
+                                            <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >
 					</div>
 
-				</div>
+                                
 			</div>
 		</div>
 	</div>
     </div>
-       
+       <script type="text/javascript">
+	
+var popup ;
+
+function setLocationPopUp(){
+	popup = window.open("getlocations.html", "Popup", "width=700,height=500");
+}	
+
+function setUserName(){
+    
+    var name = document.getElementById("doctor_email").value; 
+    document.getElementById("username").value=name;
+    
+    
+}
+
+</script>	
+
 
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
@@ -258,7 +290,7 @@ function setLocationPopUp(){
 	<script type="text/javascript">
 
 	</script>
-        
+    </form>       
 </body>
 
 </html>

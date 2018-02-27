@@ -5,11 +5,13 @@
  */
 package com.java.DataBase;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +35,9 @@ public class DataBaseHandler {
             return con ;
             
         } catch (SQLException ex) {
+            if(ex instanceof MySQLIntegrityConstraintViolationException){
+                
+            }
             Logger.getLogger(DataBaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataBaseHandler.class.getName()).log(Level.SEVERE, null, ex);
