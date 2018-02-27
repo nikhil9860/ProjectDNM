@@ -6,17 +6,26 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         
-       
+<!--        for admin login -->
         <action name="AdminLogin" class="com.java.admin.classfiles.AdminLogin" >
             
-            <result name="success">AdminDashboard.jsp</result>
+            <result name="success" type="chain" >AdminDashboard</result>
             <result name="error">LoginAdmin.jsp</result>
             
         </action> 
         
+<!--        for admin dashboard  -->
+        <action name="AdminDashboard" class="com.java.admin.classfiles.FetchAdminDashBoard">
+            
+            <result name="success">AdminDashboard.jsp</result>
+            <result name="error">LoginAdmin.jsp</result>
+            
+        </action>
+        
+        
         <action name="DoctorRegister" class="com.java.admin.classfiles.DrRegisterProcess">
             
-            <result name="success">Registration.jsp</result>   
+            <result name="success" type="chain" >AdminDashboard</result>   
             <result name="error">Registration.jsp</result>
         </action>
         

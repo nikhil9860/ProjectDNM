@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <%!String doctor_count;%>
 <head>
 
 	<meta charset="utf-8">
@@ -65,8 +65,12 @@
 								<div class="pull-xs-right">
 									<i class="fa fa-users"></i>
 								</div>
+                                                                
 								<p>No of doctors</p>
-								<h4>200</h4>
+                                                                <h4><%
+                                                                     doctor_count =(String)session.getAttribute("doctor_count");
+                                                                    out.print(doctor_count);
+                                                                    %></h4>
 							</div>
 							<progress class="progress progress-danger" value="25" max="100">25%</progress>
 							<div class="card-block">
@@ -173,7 +177,7 @@
 					pointStrokeColor: "",
 					pointHighlightFill: "#D03017",
 					pointHighlightStroke: "rgba(0,0,0,.15)",
-					data: [65, 59, 80, 81, 56, 55, 40],
+					data: [<%=doctor_count%>, 59, 80, 81, 56, 55, 40],
 					backgroundColor: "#F5A034"
 				}, {
 					label: "My Second dataset",
