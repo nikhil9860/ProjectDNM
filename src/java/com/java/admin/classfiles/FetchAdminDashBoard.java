@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
     
-    String count;
+    String doctor_count;
     
     Map<String, Object> session;
 
@@ -35,10 +35,10 @@ public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
                 ResultSet rs = DataBaseHandler.getConnection().createStatement().executeQuery(sql);
                 
                 if(rs.next()){
-                    count=rs.getString(1);
+                    doctor_count=rs.getString(1);
                 }
                
-                session.put("doctor_count", count);
+                session.put("doctor_count", doctor_count);
                  
                 return SUCCESS;
             }catch(Exception e){
