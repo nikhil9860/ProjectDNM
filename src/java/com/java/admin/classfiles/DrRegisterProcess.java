@@ -7,6 +7,7 @@ package com.java.admin.classfiles;
 
 import com.java.DAO.DrRegisterDAO;
 import com.java.POJO.DrRegisterPojo;
+import com.java.email.SendEmail;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.ValidationAware;
@@ -35,6 +36,7 @@ public class DrRegisterProcess extends ActionSupport implements ModelDriven<DrRe
             if(DrRegisterDAO.register(pojo)){
                 
                         addActionMessage("Record Saved Susscefully");
+                        SendEmail.sendMail(pojo.getDoctor_email(),pojo.getPassword());
                         return SUCCESS;
             }
             
