@@ -79,4 +79,21 @@ public class DataBaseHandler {
     }
     
     
+    public  static boolean viewAllDoctors(String sql){
+         try{
+             
+             ResultSet rs = getConnection().createStatement().executeQuery(sql);
+             while (rs.next()) {                 
+                 System.out.println(rs.getString(2));
+                 return true;
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+        
+        return false;
+    }
+    
+    
 }

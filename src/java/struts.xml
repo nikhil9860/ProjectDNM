@@ -29,5 +29,11 @@
             <result name="error">Registration.jsp</result>
         </action>
         
+        <action name="ViewDoctors" class="com.java.admin.classfiles.ViewDoctors">
+            <result name="success">ViewDoctors.jsp</result>
+            <result name="error">LoginAdmin.jsp</result>
+        </action>
+        
+        
     </package>
 </struts>

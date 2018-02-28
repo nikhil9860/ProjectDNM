@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+
+
 <html lang="en">
 
 <head>
@@ -28,99 +35,21 @@
 		<div class="container-fluid">
 
 <div class="card card-cascade narrower">
-											<div class="card-block pt-4">
 
-			<div class="form-header">
+    <div class="card-block pt-4">
 
-                            <h3>List of Doctors</h3>
-                        </div>
-
-	
-			<section class="section">
-
-				<!--Main row-->
-				<div class="row">
-
-								<!--/First row-->
-								<!--Second row-->
-								<div class="row mb-0">
-									<!--First column-->
-									<div class="col-md-12">
-
-										<!--Panel content-->
-										<div class="card-block pt-0">
-											<!--Table-->
-											<table class="table table-hover">
-												<!--Table head-->
-												<thead>
-													<tr class="product-card">
-														<th>Sr.No.</th>
-														<th>Dr. Name</th>
-														<th>Email ID</th>
-														<th>Ph.No.</th>
-														<th>Category</th>
-														<th>Address</th>
-														<th>Update</th>
-														<th>Delete</th>
-													</tr>
-												</thead>
-												<!--/Table head-->
-												<!--Table body-->
-												<tbody>
-													<tr class="none-top-border">
-														<td>1</td>
-														<td>Dr.Ankita Athavale</td>
-														<td>ankitaathavale16@gmail.com</td>
-														<td>9764699591</td>
-														<td>Dentist</td>
-														<td>Pune</td>
-														<td><a href="delete.html">Update</td>
-														<td><a href="delete.html">Delete</td>
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>Dr.Ankita Athavale</td>
-														<td>ankitaathavale16@gmail.com</td>
-														<td>9764699591</td>
-														<td>Dentist</td>
-														<td>Pune</td>
-														<td><a href="delete.html">Update</td>
-														<td><a href="delete.html">Delete</td>
-													</tr>
-													</tbody>
-												<!--/Table body-->
-											</table>
-											<!--/Table-->
-
-										</div>
-										<!--/.Panel content-->
-
-									</div>
-									<!--/First column-->
-								</div>
-								<!--/Second row-->
-
-							</div>
-							<!--/Admin panel-->
-
+        <div class="form-header">
+							<h3><i></i> Doctor List  </h3>
 						</div>
-						<!--/.Card-->
-					</div>
-
-				</div>
-				<!--/Main row-->
-
-			</section>
-			<!--/Section: Main chart-->
-			<!--Section: Charts-->
-			<!--/Section: Charts-->
-			<!--Section: Notifications-->
-			<!--/Section: Notifications-->
-			<!--Classic admin cards-->
-			
-
-		</div>
-	</main>
+        <display:table id="row" name="doctorlist" pagesize="5" requestURI="ViewDoctors">
+            
+            <display:column property="fullname" sortable="true" title="FulName"></display:column>
+            <display:column property="username" sortable="true" title="Email"></display:column>
+            <display:column property="clinicname"  title="ClincName"></display:column>
+            <display:column property="doctor_contact_number"  title="Personal no"></display:column>
+                                 
+        </display:table>
+                </main>
 	<!--/Main layout-->
 
 
