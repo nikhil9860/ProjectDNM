@@ -25,7 +25,7 @@ public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,
     }
     
     
-    
+//    for admin login
     public String execute(){
             
         String sql = "select * from Admin where admin_username='"+pojo.getUsername()+"'and admin_password='"+pojo.getPassword()+"'";

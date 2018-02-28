@@ -26,7 +26,8 @@ public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
         session= map;
     }
     
-        public String execute(){
+//    for admin dashboard data fetch 
+     public String execute(){
             
             try{
             

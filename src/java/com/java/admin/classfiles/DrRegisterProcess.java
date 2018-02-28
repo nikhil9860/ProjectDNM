@@ -15,6 +15,11 @@ import com.opensymphony.xwork2.ValidationAware;
  *
  * @author nikhil
  */
+
+
+//for Doctor register
+
+
 public class DrRegisterProcess extends ActionSupport implements ModelDriven<DrRegisterPojo>,ValidationAware {
 
     DrRegisterPojo pojo = new DrRegisterPojo();
