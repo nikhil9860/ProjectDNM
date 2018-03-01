@@ -95,5 +95,19 @@ public class DataBaseHandler {
         return false;
     }
     
+    public  static  boolean deleteDoctor(String sql){
+        
+        try{
+            
+            getConnection().createStatement().executeUpdate(sql);
+            return true;
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return false;
+    }
+    
     
 }

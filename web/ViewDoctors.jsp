@@ -40,35 +40,37 @@
 
         <div class="form-header">
 							<h3><i></i> Doctor List  </h3>
-						</div>
-        <display:table id="row" name="doctorlist" pagesize="5" requestURI="ViewDoctors">
+						</div><a href="RegisterDoctor">Add Doctor</a>
+        <display:table id="row" name="doctorlist" pagesize="5" requestURI="ViewDoctors" class="table table-hover">
             
             <display:column property="fullname" sortable="true" title="FulName"></display:column>
             <display:column property="username" sortable="true" title="Email"></display:column>
             <display:column property="clinicname"  title="ClincName"></display:column>
             <display:column property="doctor_contact_number"  title="Personal no"></display:column>
+            <display:column title="action"><a href="deleteDoctor?username=${row.username}">delete</a></display:column>
+            <display:column title="action"><a href="updateDoctor?username=${row.username}">update</a></display:column>
                                  
         </display:table>
                 </main>
 	<!--/Main layout-->
 
-
-	<!-- SCRIPTS -->
-	<!-- JQuery -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>-->
+<!--
+	 SCRIPTS 
+	 JQuery 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>
 	<script src="js/Dashboard/admin-jquery-2.2.3.min.js"></script>
 	<script>
 		$("#navigation").load("components/navigation.html");
 	</script>
 
-	<!-- Bootstrap tooltips -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>-->
+	 Bootstrap tooltips 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>
 	<script src="../version 1.1 CTS/js/Dashboard/admin-tether.min.js"></script>
-	<!-- Bootstrap core JavaScript -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>-->
+	 Bootstrap core JavaScript 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>
 	<script src="../version 1.1 CTS/js/Dashboard/admin-bootstrap.min.js"></script>
-	<!-- MDB core JavaScript -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
+	 MDB core JavaScript 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
 <script>
 		// Data Picker Initialization
@@ -111,7 +113,7 @@
 			$('#toggle').trigger('click');
 		});
 
-	</script>
+	</script>-->
 
 </body>
 

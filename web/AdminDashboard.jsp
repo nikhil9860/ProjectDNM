@@ -58,6 +58,7 @@
 					</div>
 					<!--/First column-->
 					<!--Second column-->
+                                        <a href="ViewDoctors">
 					<div class="col-md-4">
 						<!--Card Primary-->
 						<div class="card classic-admin-card deep purple">
@@ -79,6 +80,7 @@
 						</div>
 						<!--/.Card Primary-->
 					</div>
+                                        </a>
 					<!--/Second column-->
 					<!--Third column-->
 					<div class="col-md-4">

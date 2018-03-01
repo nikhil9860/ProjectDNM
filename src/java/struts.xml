@@ -34,6 +34,16 @@
             <result name="error">LoginAdmin.jsp</result>
         </action>
         
+        <action name="deleteDoctor" class="com.java.admin.classfiles.DeleteDoctor"  >
+          
+            <result name="success" type="chain">ViewDoctors</result>  
+            
+        </action>
+        
+        <action name="RegisterDoctor" class="com.java.admin.classfiles.Navigate" method="navigate">
+            <result name="success">Registration.jsp</result>  
+        </action>
+            
         
     </package>
 </struts>
