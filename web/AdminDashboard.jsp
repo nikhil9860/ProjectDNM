@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%!String doctor_count;%>
+    <%!String doctor_count;
+       String appuser_count;
+       String feedback_count;
+    %>
 <head>
 
 	<meta charset="utf-8">
@@ -47,7 +50,9 @@
 									<i class="fa fa-users"></i>
 								</div>
 								<p>No Of App Users</p>
-								<h4>2000$</h4>
+                                                                <h4><%appuser_count=session.getAttribute("appuser_count").toString();
+                                                                        out.print(appuser_count);
+                                                                    %></h4>
 							</div>
 							<progress class="progress progress-success" value="25" max="100">25%</progress>
 							<div class="card-block">
@@ -91,7 +96,10 @@
 									<i class="fa fa-file"></i>
 								</div>
 								<p>No Of Feedback</p>
-								<h4>20000</h4>
+								<h4><%
+                                                                     feedback_count =(String)session.getAttribute("feedback_count");
+                                                                    out.print(feedback_count);
+                                                                    %></h4>
 							</div>
 							<progress class="progress progress-success" value="75" max="100">25%</progress>
 							<div class="card-block">

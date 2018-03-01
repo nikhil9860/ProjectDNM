@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
     
-    String doctor_count;
+    String doctor_count,appuser_count,feedback_count;
     
     Map<String, Object> session;
 
@@ -32,15 +32,35 @@ public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
             try{
             
                 String sql = "SELECT COUNT(*) FROM Doctors";
+                String app = "SELECT COUNT(*) FROM AppUser";
+                String feedback="SELECT COUNT(*) FROM FeedBack";
                 
-                ResultSet rs = DataBaseHandler.getConnection().createStatement().executeQuery(sql);
+                ResultSet rs_doctor = DataBaseHandler.getConnection().createStatement().executeQuery(sql);
                 
-                if(rs.next()){
-                    doctor_count=rs.getString(1);
+                if(rs_doctor.next()){
+                    doctor_count=rs_doctor.getString(1);
                 }
                
+                ResultSet rs_app=DataBaseHandler.getConnection().createStatement().executeQuery(app);
+                if(rs_app.next()){
+                    
+                    appuser_count=rs_app.getString(1);
+                }
+                
+                ResultSet rs_feedback=DataBaseHandler.getConnection().createStatement().executeQuery(feedback);
+                if(rs_feedback.next()){
+                    
+                    feedback_count=rs_feedback.getString(1);
+                }
+//                
+                
+                
+                System.out.println("------------total count of feedback "+feedback_count);
+                
                 session.put("doctor_count", doctor_count);
-                 
+                session.put("appuser_count", appuser_count);
+                session.put("feedback_count",feedback_count);
+                
                 return SUCCESS;
             }catch(Exception e){
                 e.printStackTrace();
