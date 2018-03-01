@@ -25,6 +25,7 @@
 	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
 	<link href="css/Dashboard/admin-mdb.css" rel="stylesheet" />
 </head>
+<title>Doctor List</title>
 
 <body class="fixed-sn elegant-white-skin">
 	<!--Double Navigation-->
@@ -49,6 +50,7 @@
             <display:column property="doctor_contact_number"  title="Personal no"></display:column>
             <display:column title="action"><a href="deleteDoctor?username=${row.username}">delete</a></display:column>
             <display:column title="action"><a href="updateDoctor?username=${row.username}">update</a></display:column>
+            <display:column title="action"><a href="viewCompleteinfoDoctor?username=${row.username}">view</a></display:column>
                                  
         </display:table>
                 </main>

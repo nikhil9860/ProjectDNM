@@ -26,6 +26,19 @@ public class DrRegisterPojo {
     private String username;
     private String password;
 
+    public DrRegisterPojo(String fullname, String username, String doctor_contact_number, String qualification, String gender, String category, String clinicname, String clinicaddress, String clinic_contact, String clinic_landline) {
+        this.fullname = fullname;
+        this.username = username;
+        this.doctor_contact_number = doctor_contact_number;
+        this.qualification = qualification;
+        this.gender = gender;
+        this.category = category;
+        this.clinicname = clinicname;
+        this.clinicaddress = clinicaddress;
+        this.clinic_contact = clinic_contact;
+        this.clinic_landline = clinic_landline;
+    }
+
     public DrRegisterPojo() {
     }
 

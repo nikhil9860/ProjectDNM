@@ -52,10 +52,7 @@ public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
                     
                     feedback_count=rs_feedback.getString(1);
                 }
-//                
-                
-                
-                System.out.println("------------total count of feedback "+feedback_count);
+
                 
                 session.put("doctor_count", doctor_count);
                 session.put("appuser_count", appuser_count);
@@ -67,7 +64,7 @@ public class FetchAdminDashBoard extends ActionSupport implements SessionAware{
             }
             
             
-            return ERROR;
+            return SUCCESS;
         }
     
 }

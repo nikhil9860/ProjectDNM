@@ -18,11 +18,11 @@
         <action name="AdminDashboard" class="com.java.admin.classfiles.FetchAdminDashBoard">
             
             <result name="success">AdminDashboard.jsp</result>
-            <result name="error">LoginAdmin.jsp</result>
+            
             
         </action>
         
-        
+<!--        for doctor registertion-->
         <action name="DoctorRegister" class="com.java.admin.classfiles.DrRegisterProcess">
             
             <result name="success" type="chain" >AdminDashboard</result>   
@@ -43,7 +43,14 @@
         <action name="RegisterDoctor" class="com.java.admin.classfiles.Navigate" method="navigate">
             <result name="success">Registration.jsp</result>  
         </action>
+         
             
+        <action name="viewCompleteinfoDoctor" class="com.java.admin.classfiles.ViewDoctors" method="completeInfo">
+            
+            <result name="success">ViewDoctorInfo.jsp</result>
+            
+        </action>
+                      
         
     </package>
 </struts>

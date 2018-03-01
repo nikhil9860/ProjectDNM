@@ -50,6 +50,29 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
         
         return ERROR;
     }
+    
+    public String completeInfo(){
+        
+        
+        String sql="select doctor_name,doctor_uname,clinic_name,clinic_address,personal_phone_no,clinic_phone_no,clinic_landline_no,doctor_qualification,gender,category_id from Doctors where doctor_uname ='"+req.getParameter("username")+"'";
+        System.out.println("//////////"+sql);
+            try{
+                
+                ResultSet rs = DataBaseHandler.getConnection().createStatement().executeQuery(sql);
+                
+                while(rs.next()){
+                 DrRegisterPojo pojo = new DrRegisterPojo (rs.getString("doctor_name"),rs.getString("doctor_uname"),rs.getString("personal_phone_no"),rs.getString("doctor_qualification"), rs.getString("clinic_name"), rs.getString("clinic_address"),rs.getString("clinic_phone_no"),rs.getString("clinic_landline_no"));   
+                    
+                }
+                
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        
+        
+        
+        return  SUCCESS;
+    }
 
     @Override
     public DrRegisterPojo getModel() {

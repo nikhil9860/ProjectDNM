@@ -54,7 +54,7 @@
                                                                         out.print(appuser_count);
                                                                     %></h4>
 							</div>
-							<progress class="progress progress-success" value="25" max="100">25%</progress>
+                                                                    <progress class="progress progress-success" value=<%=appuser_count%> max="100">25%</progress>
 							<div class="card-block">
 								<p>Better than last week (25%)</p>
 							</div>
@@ -78,7 +78,7 @@
                                                                     out.print(doctor_count);
                                                                     %></h4>
 							</div>
-							<progress class="progress progress-danger" value="25" max="100">25%</progress>
+                                                                    <progress class="progress progress-danger" value=<%=doctor_count%> max="100">25%</progress>
 							<div class="card-block">
 								<p>Worse than last week (25%)</p>
 							</div>
@@ -101,7 +101,7 @@
                                                                     out.print(feedback_count);
                                                                     %></h4>
 							</div>
-							<progress class="progress progress-success" value="75" max="100">25%</progress>
+                                                                    <progress class="progress progress-success" value=<%=feedback_count%> max="100">25%</progress>
 							<div class="card-block">
 								<p>Better than last week (75%)</p>
 							</div>
