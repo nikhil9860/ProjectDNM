@@ -1,3 +1,4 @@
+<%@page import="com.java.POJO.DrRegisterPojo"%>
 <!DOCTYPE html>
 <%@taglib  prefix="s" uri="/struts-tags" %>
 <html lang="en">
@@ -57,6 +58,11 @@
 		}
 	</style>
 </head>
+<%! String fullname; %>
+<% DrRegisterPojo pojo = (DrRegisterPojo)session.getAttribute("doctor_display_info");
+    fullname= pojo.getFullname();
+
+%>
 
 
 <body class="fixed-sn elegant-white-skin">
@@ -101,7 +107,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" name="fullname" required="" class="form-control">
+                                                                        <input type="text" name="fullname" required="" value="<%=pojo.getFullname()%>" class="form-control">
 									<label for="fullname">Full name</label>
 								</div>
 							</div>
@@ -130,7 +136,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-                                                                        <input type="email" id="doctor_email" onfocusout="setUserName()"  name="doctor_email" required="" class="form-control">
+                                                                        <input type="email" id="doctor_email" onfocusout="setUserName()" value="<%= pojo.getDoctor_email() %>"  name="doctor_email" required="" class="form-control">
 									<label for="doctor_email">Email ID</label>
 								</div>
 							</div>
@@ -257,7 +263,7 @@
 		</div>
 	</div>
     </div>
-       <script type="text/javascript">
+<script type="text/javascript">
 	
 var popup ;
 
@@ -273,7 +279,7 @@ function setUserName(){
     
 }
 
-</script>	
+</script>
 
 
 	<!-- SCRIPTS -->

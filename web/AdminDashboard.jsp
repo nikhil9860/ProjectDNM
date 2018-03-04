@@ -249,31 +249,6 @@
 
 		});
 	</script>
-
-	<script type="text/javascript">
-
-		// show/hide customizer
-		$('#toggle').click(function (e) {
-			e.preventDefault();
-			$('#customizer').toggleClass('visible');
-		});
-
-		// change skin
-		$('a[data-skin]').on('click', function (e) {
-			e.preventDefault();
-
-			// remove old class
-			document.body.className = document.body.className.replace(/(?:(\w+)-?)(\w+)-(skin)/g, "");
-
-			// add new class
-			$('body').addClass($(this).attr("data-skin") + '-skin');
-
-			// trigger toggle button
-			$('#toggle').trigger('click');
-		});
-
-	</script>
-
 </body>
 
 </html>

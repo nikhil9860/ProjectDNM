@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,10 +30,11 @@
     </head>
     <body class="fixed-sn elegant-white-skin">
 	<!--Double Navigation-->
+       
 	        <%@include file="header.html" %>
 	<!--/Double Navigation-->
 	<!--Main layout-->
-	<main class="">
+        <main class="" style="width:2000px;">
 		<div class="container-fluid">
 
 <div class="card card-cascade narrower">
@@ -41,6 +44,23 @@
         <div class="form-header">
 							<h3><i></i> Doctor Complete Info .. </h3>
 						</div>
+        
+        <display:table id="row" name="doctorcompleteinfo" pagesize="5" requestURI="ViewDoctors" class="table table-hover">
+            
+            <display:column property="fullname" sortable="true" title="FulName"></display:column>
+            <display:column property="username" sortable="true" title="Email"></display:column>
+            <display:column property="clinicname"  title="ClincName"></display:column>
+            <display:column property="doctor_contact_number"  title="Personal no"></display:column>
+            <display:column property="qualification"  title="Qualification"></display:column>
+            <display:column property="clinicname"  title="Clinic Name"></display:column>
+            <display:column property="clinicaddress"  title="Clinic Address"></display:column>
+            <display:column property="clinic_contact"  title="Clinic Pno."></display:column>
+            <display:column property="clinic_contact"  title="Landline"></display:column>
+            
+            <display:column title="action"><a href="updateDoctor?username=${row.username}">update</a></display:column>
+            
+                                 
+        </display:table>
         
     </body>
 </html>

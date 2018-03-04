@@ -50,7 +50,10 @@
             <result name="success">ViewDoctorInfo.jsp</result>
             
         </action>
-                      
+         
+        <action name="updateDoctor" class="com.java.admin.classfiles.ViewDoctors" method="viewUpdateInfo" >
+            <result name="success" >UpdateDoctors.jsp</result>
+        </action>                          
         
     </package>
 </struts>
