@@ -31,7 +31,7 @@
         
         <action name="ViewDoctors" class="com.java.admin.classfiles.ViewDoctors">
             <result name="success">ViewDoctors.jsp</result>
-            <result name="error">LoginAdmin.jsp</result>
+            
         </action>
         
         <action name="deleteDoctor" class="com.java.admin.classfiles.DeleteDoctor"  >
@@ -54,6 +54,12 @@
         <action name="updateDoctor" class="com.java.admin.classfiles.ViewDoctors" method="viewUpdateInfo" >
             <result name="success" >UpdateDoctors.jsp</result>
         </action>                          
+        
+        <action name="UpdateDoctorInfo" class="com.java.admin.classfiles.ViewDoctors" method="update" >
+            <result name="success" type="chain" >AdminDashboard</result>  
+            <result name="error">LoginAdmin.jsp</result>
+            
+        </action>
         
     </package>
 </struts>

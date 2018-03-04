@@ -64,14 +64,12 @@
     category=pojo.getCategory_name();
 
 %>
-<%= "Doctor "+ category%>
-
 <body class="fixed-sn elegant-white-skin">
     
    
     
-    <form action="DoctorRegister" method="post">
-            <div class="container" >
+    <form action="UpdateDoctorInfo" method="post">
+            <div class="container">
 		<div class="row">
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
 
@@ -85,7 +83,7 @@
 						</div>
 
 				
-					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
+                                                <font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
 					</div>
 				<!--Body-->
 						<div class="row">
@@ -142,16 +140,16 @@
                                                                 
                                                                 <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="Dermatologist" <% if(category.equals("Dermatologist"))%>  selected <%  %> >Dermatologist</option>
-								<option value="Cardiologist">Cardiologist</option>
-								<option value="E-N-T Specialist">E-N-T Specialist</option>
-                                                                <option value="Dentist" <% if(category.equals("Dentist"))%>selected <% %> >Dentist</option>
-								<option value="Ayurveda">Ayurveda</option>
-								<option value="Homeopath">Homeopath</option>
-								<option value="Psychologist">Psychologist</option>
-								<option value="Dietition">Dietition</option>
-								<option value="Neurologist">Neurologist</option>
-								<option value="Orthodentist">Orthodentist</option>
+								 <option value="1" <% if(category.equals("Dermatologist"))%>  selected <%  %> >Dermatologist</option>
+								<option value="2" <% if(category.equals("Cardiologist"))%>  selected <%  %> >Cardiologist</option>
+								<option value="3" <% if(category.equals("E-N-T Specialist"))%>  selected <%  %>>E-N-T Specialist</option>
+                                                                <option value="4" <% if(category.equals("Dentist"))%>selected <% %> >Dentist</option>
+								<option value="5"<% if(category.equals("Ayurveda"))%>  selected <%  %>>Ayurveda</option>
+								<option value="6"<% if(category.equals("Homeopath"))%>  selected <%  %>>Homeopath</option>
+								<option value="7"<% if(category.equals("Psychologist"))%>  selected <%  %>>Psychologist</option>
+								<option value="8"<% if(category.equals("Dietition"))%>  selected <%  %>>Dietition</option>
+								<option value="9"<% if(category.equals("Neurologist"))%>  selected <%  %>>Neurologist</option>
+								<option value="10"<% if(category.equals("Orthodentist"))%>  selected <%  %>>Orthodentist</option>
 								 </select>
 							</div>
 						</div>
@@ -225,7 +223,7 @@
 							</div>
 						</div>-->
 					<div class="modal-footer text-xs-center">
-                                            <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >
+                                            <input type="submit" class="btn btn-primary"  value="Update" >
 					</div>
 
                                 

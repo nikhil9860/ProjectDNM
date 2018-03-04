@@ -108,6 +108,17 @@ public class DataBaseHandler {
         
         return false;
     }
+
+public static  boolean  updateDoctor(PreparedStatement ps){
+    
+    try{
+        ps.executeUpdate();
+        return true;
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+    return false;
+}
     
     
 }

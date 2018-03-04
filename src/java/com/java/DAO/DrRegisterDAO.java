@@ -22,7 +22,7 @@ public class DrRegisterDAO {
     
     public static boolean register(DrRegisterPojo pojo){
         
-     //   String sql="insert into Doctors(doctor_id,doctor_name,doctor_uname,password,clinic_name,clinic_address,personal_phone_no,clinic_phone_no,clinic_landline_no,doctor_email_id,doctor_qualification,photo,gender,address_cordinates,category_id)   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+     
         String sql="insert into Doctors(doctor_name,doctor_uname,password,clinic_name,clinic_address,personal_phone_no,clinic_phone_no,clinic_landline_no,doctor_email_id,doctor_qualification,photo,gender,address_cordinates,category_id)   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
