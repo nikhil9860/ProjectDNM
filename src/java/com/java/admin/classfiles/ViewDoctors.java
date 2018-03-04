@@ -10,6 +10,7 @@ import static com.java.DataBase.DataBaseHandler.getConnection;
 import com.java.POJO.DrRegisterPojo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Map;
@@ -87,7 +88,7 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
 
     
     public String viewUpdateInfo(){
-        
+        DrRegisterPojo pojo = new DrRegisterPojo();
         String sql="select doctor_name,doctor_uname,clinic_name,clinic_address,personal_phone_no,clinic_phone_no,clinic_landline_no,doctor_qualification,gender,category_id from Doctors where doctor_uname ='"+req.getParameter("username")+"'";
         
         try{
@@ -95,14 +96,32 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
             ResultSet rs = DataBaseHandler.getConnection().createStatement().executeQuery(sql);
             
                 if(rs.next()){
-                    DrRegisterPojo pojo = new DrRegisterPojo();
+                    
                     pojo.setFullname(rs.getString("doctor_name"));
                     pojo.setDoctor_email(rs.getString("doctor_uname"));
-                    
-                    session.put("doctor_display_info", pojo);
-                    
+                    pojo.setDoctor_contact_number(rs.getString("personal_phone_no"));
+                    pojo.setQualification(rs.getString("doctor_qualification"));
+                    pojo.setClinicname(rs.getString("clinic_name"));
+                    pojo.setClinicaddress(rs.getString("clinic_address"));
+                    pojo.setClinic_landline(rs.getString("clinic_landline_no"));
+                    pojo.setClinic_contact(rs.getString("clinic_phone_no"));
+                    pojo.setGender(rs.getString("gender"));
+                        
                 }
             
+                String cat = "SELECT Doctors.doctor_name,Categories.category_name FROM Doctors INNER JOIN Categories ON  Doctors.category_id=Categories.category_id where Doctors.doctor_email_id='"+req.getParameter("username")+"' ";
+                //System.out.println(cat);
+                
+                 
+                ResultSet rs_cat = DataBaseHandler.getConnection().createStatement().executeQuery(cat);
+                 
+                if(rs_cat.next()){
+                    
+                 
+                    pojo.setCategory_name(rs_cat.getString(2));
+                    session.put("doctor_display_info", pojo);
+                }
+                
             
         }catch(Exception e){
             e.printStackTrace();

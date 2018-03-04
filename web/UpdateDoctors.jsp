@@ -58,12 +58,13 @@
 		}
 	</style>
 </head>
-<%! String fullname; %>
+<%! String gender,category; %>
 <% DrRegisterPojo pojo = (DrRegisterPojo)session.getAttribute("doctor_display_info");
-    fullname= pojo.getFullname();
+    gender=pojo.getGender();
+    category=pojo.getCategory_name();
 
 %>
-
+<%= "Doctor "+ category%>
 
 <body class="fixed-sn elegant-white-skin">
     
@@ -80,25 +81,10 @@
 
 						<!--Header-->
 						<div class="form-header">
-							<h3><i class="fa fa-lock"></i> Registration Form </h3>
+							<h3><i class="fa fa-lock"></i> Update Details</h3>
 						</div>
 
-						<div class="text-xs-center">
-                                                                <s:if test="hasActionErrors()">
-                            
-                                <div class="text-xs-center" style="color: red">
-                            <s:actionerror />
-                        </div>
-                        </s:if>
-                                
-                                <s:if test="hasActionMessages()">
-                                 
-                                    <div class="text-xs-center" style="color: green">
-                                        <s:actionmessage/>
-                                </s:if>
-
-
-				</div>
+				
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
 					</div>
 				<!--Body-->
@@ -111,26 +97,8 @@
 									<label for="fullname">Full name</label>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<!--File Input-->
-								<form>
-									<div class="file-field">
-										<div class="btn btn-primary btn-sm">
-											<span>Choose file</span>
-                                                                                        <input type="file" required="" name="picture" >
-										</div>
-										<div class="file-path-wrapper">
-											<input class="file-path validate" type="text" placeholder="Upload your file">
-										</div>
-									</div>
-								</form>
-
-							</div>
-							<div class="col-md-2">
-							<div class="md-form">
-									<img src="images/Logo.jpg" height="100" width="100"/>
-								</div>
-							</div>
+							
+							
 						</div>
 						<div class="row">
 							<div class="col-md-6">
@@ -143,7 +111,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" name="doctor_contact_number" minlength="10" maxlength="10" required="" class="form-control">
+                                                                        <input type="text" name="doctor_contact_number" value="<%= pojo.getDoctor_contact_number() %>" minlength="10" maxlength="10" required="" class="form-control">
 									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
@@ -152,7 +120,7 @@
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-university prefix"></i>
-                                                                        <input type="text" name="qualification" required="" class="form-control">
+                                                                        <input type="text" name="qualification" value="<%= pojo.getQualification() %>" required="" class="form-control">
 									<label for="Qualification">Qualification</label>
 								</div>
 							</div>
@@ -163,19 +131,21 @@
 								<!--<i class="fa fa-user prefix"></i>-->
                                                                 <select name="gender" required="" class="form-control"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
-								 <option value="Male">Male</option>
-								 <option value="Female">Female</option>
+                                                                 <option value="Male" <% if(gender.equals("Male"))%>  selected <%  %> >Male</option>
+								 <option value="Female" <% if(gender.equals("Female"))%>  selected <%  %>>Female</option>
 								 </select>
 							</div>
+                                                                 
+                                                                 
 							<div class="col-md-4">
 								<!--File Input-->
                                                                 
                                                                 <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="">Dermatologist</option>
+								 <option value="Dermatologist" <% if(category.equals("Dermatologist"))%>  selected <%  %> >Dermatologist</option>
 								<option value="Cardiologist">Cardiologist</option>
 								<option value="E-N-T Specialist">E-N-T Specialist</option>
-								<option value="Dentist">Dentist</option>
+                                                                <option value="Dentist" <% if(category.equals("Dentist"))%>selected <% %> >Dentist</option>
 								<option value="Ayurveda">Ayurveda</option>
 								<option value="Homeopath">Homeopath</option>
 								<option value="Psychologist">Psychologist</option>
@@ -193,7 +163,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>	
-                                                                        <input type="text" id="form6" name="clinicname" required="" class="form-control">
+                                                                        <input type="text" id="form6" name="clinicname" value="<%= pojo.getClinicname()%>" required="" class="form-control">
 									<label for="form6">Clinic Name</label>
 								</div>
 							</div>
@@ -203,7 +173,7 @@
 
                                                                      
 						
-                                                                        <input type="text" id="form7" name="clinicaddress" required=""  class="form-control">
+                                                                        <input type="text" id="form7" name="clinicaddress" value="<%= pojo.getClinicaddress() %>" required=""  class="form-control">
 									<label for="form7">Clinic Address</label>
 
                                                                         <input type="hidden" id="cordinates" name="cordinate"> 
@@ -221,26 +191,26 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" required="" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" value="<%= pojo.getClinic_contact()%>" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form9" name="clinic_landline" class="form-control">
+                                                                        <input type="text" id="form9" name="clinic_landline" value="<%=pojo.getClinic_landline() %>" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
 						</div>
-							<div class="text-xs-center"><hr>
+<!--							<div class="text-xs-center"><hr>
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>User Credentials</b></font>
 					</div>
 					
                                 
 						<div class="row">
 							<div class="col-md-6">
-								<!--Input groups-->
+								Input groups
 								<div class="md-form input-group">
 									<i class="fa fa-user prefix"></i>
                                                                         <input type="text" class="form-control" id="username" readonly="" required=""  name="username" placeholder="Username" aria-describedby="basic-addon1">
@@ -253,7 +223,7 @@
 									 
 								</div>
 							</div>
-						</div>
+						</div>-->
 					<div class="modal-footer text-xs-center">
                                             <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >
 					</div>
@@ -270,14 +240,6 @@ var popup ;
 function setLocationPopUp(){
 	popup = window.open("getlocations.html", "Popup", "width=700,height=500");
 }	
-
-function setUserName(){
-    
-    var name = document.getElementById("doctor_email").value; 
-    document.getElementById("username").value=name;
-    
-    
-}
 
 </script>
 

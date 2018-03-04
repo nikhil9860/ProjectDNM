@@ -10,6 +10,8 @@ package com.java.POJO;
  * @author nikhil
  */
 public class DrRegisterPojo {
+
+   
     
     private String fullname;
     private String picture;
@@ -25,6 +27,7 @@ public class DrRegisterPojo {
     private String clinic_landline;
     private String username;
     private String password;
+    private String category_name;
 
     public DrRegisterPojo(String fullname, String username, String doctor_contact_number, String qualification, String gender, String category, String clinicname, String clinicaddress, String clinic_contact, String clinic_landline) {
         this.fullname = fullname;
@@ -253,4 +256,19 @@ public class DrRegisterPojo {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+     /**
+     * @return the category_name
+     */
+    public String getCategory_name() {
+        return category_name;
+    }
+
+    /**
+     * @param category_name the category_name to set
+     */
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
+    }
+    
 }
