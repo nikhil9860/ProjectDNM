@@ -10,6 +10,7 @@ import static com.java.DataBase.DataBaseHandler.getConnection;
 import com.java.POJO.DrRegisterPojo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.ValidationAware;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author nikhil
  */
-public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegisterPojo>,ServletRequestAware,SessionAware{
+public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegisterPojo>,ServletRequestAware,SessionAware,ValidationAware{
     
    DrRegisterPojo pojo = new DrRegisterPojo();
    
@@ -111,7 +112,7 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
                 }
             
                 String cat = "SELECT Doctors.doctor_name,Categories.category_name FROM Doctors INNER JOIN Categories ON  Doctors.category_id=Categories.category_id where Doctors.doctor_email_id='"+req.getParameter("username")+"' ";
-                //System.out.println(cat);
+                
                 
                  
                 ResultSet rs_cat = DataBaseHandler.getConnection().createStatement().executeQuery(cat);
@@ -132,18 +133,19 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
         return SUCCESS;
     }
     
+//    for updating the doctor info
     public  String update(){
         try{
-        //String sql="update Doctors set clinic_name ='"+pojo.getClinicname()+"',clinic_phone_no = '"+pojo.getClinic_contact()+"' , clinic_address = '"+pojo.getClinicaddress()+"' , doctor_qualification='"+pojo.getQualification()+"', gender='"+pojo.getGender()+"',category_id='"+pojo.getCategory()+"'  where doctor_uname ='"+pojo.getDoctor_email()+"' ";
-        String sql = "update Doctors set clinic_name =?,category_id =?,clinic_phone_no=?,clinic_landline_no=? where doctor_uname = ? ";
+        
+        String sql = "update Doctors set clinic_name =?,category_id =?,clinic_phone_no=?,clinic_landline_no=?,personal_phone_no=? where doctor_uname = ? ";
         PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
         ps.setString(1,pojo.getClinicname());
         ps.setInt(2,Integer.parseInt(pojo.getCategory()));
         ps.setString(3,pojo.getClinic_contact());
         ps.setString(4,pojo.getClinic_landline());
-        ps.setString(5,pojo.getDoctor_email());
+        ps.setString(5,pojo.getDoctor_contact_number());
+        ps.setString(6,pojo.getDoctor_email());
        
-        System.out.println("/////////////"+sql);  
         if(DataBaseHandler.updateDoctor(ps)){
            return  SUCCESS; 
         }
@@ -151,6 +153,7 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
         }catch(Exception e){
             e.printStackTrace();
         }
+        addActionMessage("Mobile Number Already Registerd");
         return ERROR;
     }
     

@@ -57,8 +57,15 @@
         
         <action name="UpdateDoctorInfo" class="com.java.admin.classfiles.ViewDoctors" method="update" >
             <result name="success" type="chain" >AdminDashboard</result>  
-            <result name="error">LoginAdmin.jsp</result>
+            <result name="error">UpdateDoctors.jsp</result>
             
+        </action>
+        
+        <action name="ViewAppUsers" class="com.java.admin.classfiles.ViewAppUsers" >
+            
+            <result name="success">ViewAppUsers.jsp</result>
+             
+                
         </action>
         
     </package>

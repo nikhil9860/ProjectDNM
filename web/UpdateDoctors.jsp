@@ -81,7 +81,18 @@
 						<div class="form-header">
 							<h3><i class="fa fa-lock"></i> Update Details</h3>
 						</div>
+                                                
+                                                <div class="text-xs-center">
+                        
+                                
+                                <s:if test="hasActionMessages()">
+                                 
+                                    <div class="text-xs-center" style="color: green">
+                                        <s:actionmessage/>
+                                </s:if>
 
+
+				</div>
 				
                                                 <font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
 					</div>
