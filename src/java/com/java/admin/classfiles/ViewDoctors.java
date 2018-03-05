@@ -135,11 +135,14 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
     public  String update(){
         try{
         //String sql="update Doctors set clinic_name ='"+pojo.getClinicname()+"',clinic_phone_no = '"+pojo.getClinic_contact()+"' , clinic_address = '"+pojo.getClinicaddress()+"' , doctor_qualification='"+pojo.getQualification()+"', gender='"+pojo.getGender()+"',category_id='"+pojo.getCategory()+"'  where doctor_uname ='"+pojo.getDoctor_email()+"' ";
-        String sql = "update Doctors set clinic_name =?,category_id =? where doctor_uname = ? ";
+        String sql = "update Doctors set clinic_name =?,category_id =?,clinic_phone_no=?,clinic_landline_no=? where doctor_uname = ? ";
         PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
         ps.setString(1,pojo.getClinicname());
         ps.setInt(2,Integer.parseInt(pojo.getCategory()));
-        ps.setString(3,pojo.getDoctor_email());
+        ps.setString(3,pojo.getClinic_contact());
+        ps.setString(4,pojo.getClinic_landline());
+        ps.setString(5,pojo.getDoctor_email());
+       
         System.out.println("/////////////"+sql);  
         if(DataBaseHandler.updateDoctor(ps)){
            return  SUCCESS; 

@@ -91,7 +91,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" name="fullname" required="" value="<%=pojo.getFullname()%>" class="form-control">
+                                                                        <input type="text" name="fullname" readonly="" required="" value="<%=pojo.getFullname()%>" class="form-control">
 									<label for="fullname">Full name</label>
 								</div>
 							</div>
@@ -102,7 +102,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-                                                                        <input type="email" id="doctor_email" onfocusout="setUserName()" value="<%= pojo.getDoctor_email() %>"  name="doctor_email" required="" class="form-control">
+                                                                        <input type="email" readonly="" id="doctor_email" onfocusout="setUserName()" value="<%= pojo.getDoctor_email() %>"  name="doctor_email" required="" class="form-control">
 									<label for="doctor_email">Email ID</label>
 								</div>
 							</div>

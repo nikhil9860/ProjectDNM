@@ -215,14 +215,14 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" required="" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" minlength="11" maxlength="11" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form9" name="clinic_landline" class="form-control">
+                                                                        <input type="text" id="form9" name="clinic_landline" minlength="11" maxlength="11" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
@@ -250,9 +250,7 @@
 						</div>
 					<div class="modal-footer text-xs-center">
                                             <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >
-					</div>
-
-                                
+					</div>                  
 			</div>
 		</div>
 	</div>
