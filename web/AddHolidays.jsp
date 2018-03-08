@@ -1,67 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!--<meta http-equiv="x-ua- compatible" content="ie=edge">
+	<!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
 
-	<title>Sign-Up Form </title>
-
-	<!-- Meta OG -->
-	<meta property="og:title" content="Minimalistic Sign Up form for Material Admin Dashboard">
-	<meta property="og:description" content="Simple, yet efficient sign up for for all the purpose you can imagine.">
-	<meta property="og:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg">
-	<meta property="og:url" content="http://mdbootstrap.com/live/_MDB/templates/Admin/login.html">
-	<meta property="og:site_name" content="mdbootstrap.com">
-	<!-- /Meta OG -->
-	<!-- Twitter Card -->
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:description" content="Simple, yet efficient sign up for for all the purpose you can imagine." />
-	<meta property="twitter:title" content="Minimalistic Sign Up form for Material Admin Dashboard" />
-	<meta property="twitter:site" content="@MDBootstrap" />
-	<meta property="twitter:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg" />
-	<meta property="twitter:creator" content="@MDBootstrap" />
-	<!-- /Twitter Card -->
+	<title>View Holidays</title>
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 	<!-- Bootstrap core CSS -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-bootstrap.min.css" rel="stylesheet" />
 	<!-- Material Design Bootstrap -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
-	<link href="css/mdb.min.css" rel="stylesheet" />
-
-	<!-- Your custom styles (optional) -->
-	<link href="css/style.css" rel="stylesheet">
-	<style>
-		body {
-			font-family: "Roboto", sans-serif;
-			background-color: #eee;
-		}
-
-		.login-form {
-			margin-top: 8rem;
-		}
-
-		.card {
-			width: 100%;
-		}
-
-		.elegant-white-skin .tag, .elegant-white-skin .form-header, .elegant-white-skin .card-header {
-			background-color: #4c8bf5;
-		}
-	</style>
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-mdb.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-sn elegant-white-skin">
     
-    <%@include file="headerDr.html"  %>
+    <form method="post" action="AddHolidays">
             <div class="container">
-		
+<%@include file="headerDr.jsp"  %>		
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
 
 				<!--Form with header-->
@@ -76,16 +38,16 @@
                                                     <div class="col-md-6">
                                                     
                                                     <i class="fa fa-calendar prefix"></i>
-                                                    <input type="text" id="fromh" class="form-control datepicker" value="From">
+                                                    <input type="date" name="fromdate" class="form-control" >
                                                 </div>
                                                     <div class="col-md-6">
                                                         <i class="fa fa-calendar prefix"></i>
-                                                    <input type="text" id="toh" class="form-control datepicker" value="To">
+                                                    <input type="date" name="todate" class="form-control">
                                                 </div>
                                                 </div>
                                                 
                                     <div class="modal-footer text-xs-center">
-                                            <button type="button" class="btn btn-primary"><i class="fa fa-save left"></i> Save Holidays</button>
+                                        <input type="submit" class="btn btn-primary"/>
 					</div>
                                                 <hr>
                                                 <div class="row">
@@ -126,7 +88,7 @@
    
             </div>
 
-
+    </form>
 
 	<!-- SCRIPTS -->
 	<!-- JQuery -->

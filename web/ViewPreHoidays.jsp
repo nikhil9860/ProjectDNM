@@ -59,9 +59,9 @@
 
 <body class="fixed-sn elegant-white-skin">
     
-    <%@include file="headerDr.html"%>
-            <div class="container">
-		
+    <%@include file="Drheader.html"%>
+		<div class="container">
+<div class="card card-cascade narrower">
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
 
 				<!--Form with header-->
@@ -109,7 +109,7 @@
 	</div>
    
             </div>
-
+                </div>
 
 
 	<!-- SCRIPTS -->

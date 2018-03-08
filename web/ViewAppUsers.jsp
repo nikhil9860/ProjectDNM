@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+ 
+   
 <head>
 
 	<meta charset="utf-8">
@@ -32,73 +37,16 @@
 			<div class="form-header">
 							<h3><i></i> View App Users </h3>
 						</div>
-
-	
-                                                                                    
-			<section class="section">
-
-				<!--Main row-->
-				<div class="row">
-
-								<!--/First row-->
-								<!--Second row-->
-								<div class="row mb-0">
-									<!--First column-->
-									<div class="col-md-12">
-
-										<!--Panel content-->
-										<div class="card-block pt-0">
-											<!--Table-->
-											<table class="table table-hover">
-												<!--Table head-->
-												<thead>
-													<tr class="product-card">
-														<th>Sr.No.</th>
-														<th>User Name</th>
-														<th>Email ID</th>
-														<th>Ph.No.</th>
-														
-														<th>Address</th>
-														<th>Gender</th>
-														<th>DOB</th>
-													</tr>
-												</thead>
-												<!--/Table head-->
-												<!--Table body-->
-												<tbody>
-													<tr class="none-top-border">
-														<td>1</td>
-														<td>Ankita Athavale</td>
-														<td>ankitaathavale16@gmail.com</td>
-														<td>9764699591</td>
-														
-														<td>Pune</td>
-														<td>Female</td>
-														<td>06/06/1996</td>
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>Dr.Ankita Athavale</td>
-														<td>ankitaathavale16@gmail.com</td>
-														<td>9764699591</td>
-														
-														<td>Pune</td>
-														<td></td>
-														<td></td>
-													</tr>
-													</tbody>
-												<!--/Table body-->
-											</table>
-											<!--/Table-->
-
-										</div>
-										<!--/.Panel content-->
-
-									</div>
-									<!--/First column-->
-								</div>
-								<!--/Second row-->
-
+                                        <display:table id="row" name="appuser_info" pagesize="5" requestURI="ViewAppUsers" class="table table-hover">
+                                        <display:column property="name" sortable="true" title="FulName"></display:column> 
+                                        <display:column property="user_email_id" sortable="true" title="Email"></display:column>        
+                                        <display:column property="mobile_number" sortable="true" title="Mobile number"></display:column>        
+                                        <display:column property="location" sortable="true" title="Location"></display:column>        
+                                        <display:column property="gender" sortable="true" title="Gender"></display:column>
+                                        <display:column property="date_of_birth" sortable="true" title="DOB"></display:column>        
+                                                   
+                                            
+                                        </display:table>
 							</div>
 							<!--/Admin panel-->
 
@@ -106,18 +54,10 @@
 						<!--/.Card-->
 					</div>
 
-				</div>
-				<!--/Main row-->
+				
 
 			</section>
-			<!--/Section: Main chart-->
-			<!--Section: Charts-->
-			<!--/Section: Charts-->
-			<!--Section: Notifications-->
-			<!--/Section: Notifications-->
-			<!--Classic admin cards-->
-			
-
+						
 		</div>
 	</main>
 	<!--/Main layout-->
@@ -140,49 +80,8 @@
 	<!-- MDB core JavaScript -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
-<script>
-		// Data Picker Initialization
-		$('.datepicker').pickadate();
 
-
-		// Material Select Initialization
-		$(document).ready(function () {
-			$('.mdb-select').material_select();
-		});
-
-		// Sidenav Initialization
-		$(".button-collapse").sideNav();
-
-		// Tooltips Initialization
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
-	</script>
-
-	<script type="text/javascript">
-
-		// show/hide customizer
-		$('#toggle').click(function (e) {
-			e.preventDefault();
-			$('#customizer').toggleClass('visible');
-		});
-
-		// change skin
-		$('a[data-skin]').on('click', function (e) {
-			e.preventDefault();
-
-			// remove old class
-			document.body.className = document.body.className.replace(/(?:(\w+)-?)(\w+)-(skin)/g, "");
-
-			// add new class
-			$('body').addClass($(this).attr("data-skin") + '-skin');
-
-			// trigger toggle button
-			$('#toggle').trigger('click');
-		});
-
-	</script>
-
+	
 </body>
 
 </html>

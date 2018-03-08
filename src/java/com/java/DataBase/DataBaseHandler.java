@@ -23,7 +23,9 @@ import java.util.logging.Logger;
 public class DataBaseHandler {
     
     private static  Connection con;
-    
+
+
+//to get a static database connecton    
     public static Connection  getConnection(){
         
         try {
@@ -47,6 +49,7 @@ public class DataBaseHandler {
         
     }
     
+//    for admin login
     public static boolean doLogin(String sql){
         
         try{
@@ -65,7 +68,7 @@ public class DataBaseHandler {
         return false;
     }
     
-    
+//    for doctor insert
     public static boolean doInsert(PreparedStatement ps){
         try{
                 
@@ -78,7 +81,7 @@ public class DataBaseHandler {
         return false;
     }
     
-    
+//    for viewing all doctor
     public  static boolean viewAllDoctors(String sql){
          try{
              
@@ -95,6 +98,7 @@ public class DataBaseHandler {
         return false;
     }
     
+//    for deleting doctor
     public  static  boolean deleteDoctor(String sql){
         
         try{
@@ -109,6 +113,7 @@ public class DataBaseHandler {
         return false;
     }
 
+//       for updating doctor
 public static  boolean  updateDoctor(PreparedStatement ps){
     
     try{
@@ -119,6 +124,10 @@ public static  boolean  updateDoctor(PreparedStatement ps){
     }
     return false;
 }
-    
+   
+
+ 
+
+
     
 }

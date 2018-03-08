@@ -5,61 +5,24 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!--<meta http-equiv="x-ua- compatible" content="ie=edge">
+	<!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
 
-	<title>Sign-Up Form </title>
-
-	<!-- Meta OG -->
-	<meta property="og:title" content="Minimalistic Sign Up form for Material Admin Dashboard">
-	<meta property="og:description" content="Simple, yet efficient sign up for for all the purpose you can imagine.">
-	<meta property="og:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg">
-	<meta property="og:url" content="http://mdbootstrap.com/live/_MDB/templates/Admin/login.html">
-	<meta property="og:site_name" content="mdbootstrap.com">
-	<!-- /Meta OG -->
-	<!-- Twitter Card -->
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:description" content="Simple, yet efficient sign up for for all the purpose you can imagine." />
-	<meta property="twitter:title" content="Minimalistic Sign Up form for Material Admin Dashboard" />
-	<meta property="twitter:site" content="@MDBootstrap" />
-	<meta property="twitter:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg" />
-	<meta property="twitter:creator" content="@MDBootstrap" />
-	<!-- /Twitter Card -->
+	<title>Add User</title>
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 	<!-- Bootstrap core CSS -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-bootstrap.min.css" rel="stylesheet" />
 	<!-- Material Design Bootstrap -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
-	<link href="css/mdb.min.css" rel="stylesheet" />
-
-	<!-- Your custom styles (optional) -->
-	<link href="css/style.css" rel="stylesheet">
-	<style>
-		body {
-			font-family: "Roboto", sans-serif;
-			background-color: #eee;
-		}
-
-		.login-form {
-			margin-top: 8rem;
-		}
-
-		.card {
-			width: 100%;
-		}
-
-		.elegant-white-skin .tag, .elegant-white-skin .form-header, .elegant-white-skin .card-header {
-			background-color: #4c8bf5;
-		}
-	</style>
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-mdb.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-sn elegant-white-skin">
     
-    <%@include file="headerDr.html"  %>
+    <%@include file="headerDr.jsp"  %>
+    <form action="ReceptionRegister" method="post">
             <div class="container">
 		<div class="row">
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
@@ -82,11 +45,11 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" id="name" class="form-control">
+									<input type="text" name="name" class="form-control">
 									<label for="form1">Full name</label>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<!--File Input-->
 								<form>
 									<div class="file-field">
@@ -95,30 +58,25 @@
 											<input type="file">
 										</div>
 										<div class="file-path-wrapper">
-											<input class="file-path validate" id="photo" type="text" value="Upload your file">
+											<input class="file-path validate" name="photo" type="text" value="Upload your file">
 										</div>
 									</div>
 								</form>
 
 							</div>
-							<div class="col-md-2">
-							<div class="md-form">
-									<img src="images/Logo.jpg" height="100" width="100"/>
-								</div>
-							</div>
-						</div>
+													</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-									<input type="text" id="emailid" class="form-control">
+									<input type="text" name="emailid" class="form-control">
 									<label for="emailid">Email ID</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="contactno" class="form-control">
+									<input type="text" name="contactno" class="form-control">
 									<label for="contactno">Contact No.</label>
 								</div>
 							</div>
@@ -127,19 +85,20 @@
 							   <div class="col-md-6">
 								<!--File Input-->
 								<!--<i class="fa fa-user prefix"></i>-->
-                                                                <select class="form-control" id="gender"> 
+                                                                <select class="form-control" name="gender"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
-								 <option value="1">Male</option>
-								 <option value="2">Female</option>
+								 <option value="male">Male</option>
+								 <option value="female">Female</option>
 								 </select>
 							</div>
-					<div class="col-md-6">
-	                                    <div class="card-block pt-0">
-                                                
-                                                <input type="text" id="DOB" class="form-control datepicker" value="Select Date Of Birth">
-                                      
-                                             </div></div>
-                                      	 
+                                                    <div class="col-md-6">
+								<div class="md-form">
+									<i class="fa fa-birthday-cake prefix"></i>
+									<input type="date" name="DOB" class="form-control">
+									
+								</div>
+							</div>
+
                                                             </div>						</div>
 						
 							
@@ -151,21 +110,21 @@
                                     	<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa- prefix"></i>
-                                                                        <input type="text" id="uname" class="form-control" placeholder="username">
+                                                                        <input type="text" name="uname" class="form-control" placeholder="username">
 									
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 								<i class="fa fa- prefix"></i>
-									<input type="password" id ="password" class="form-control" placeholder="Doctors Password" aria-describedby="basic-addon2">
+									<input type="password" name="password" class="form-control" placeholder="Enter Password" aria-describedby="basic-addon2">
 									 
 								</div>
 							</div>
 						</div>
 		
                                     <div class="modal-footer text-xs-center">
-                                            <button type="button" class="btn btn-primary"><i class="fa fa-save left"></i> Add Receptionist</button>
+                                            <input type="submit" class="btn btn-primary"></input>
 					</div>
 
 				</div>
@@ -174,9 +133,7 @@
 	</div>
    
        
-
-
-
+    </form>
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>-->
@@ -187,10 +144,10 @@
 
 	<!-- Bootstrap tooltips -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>-->
-	<script src="../version 1.1 CTS/js/Dashboard/admin-tether.min.js"></script>
+	<script src="js/Dashboard/admin-tether.min.js"></script>
 	<!-- Bootstrap core JavaScript -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>-->
-	<script src="../version 1.1 CTS/js/Dashboard/admin-bootstrap.min.js"></script>
+	<script src="js/Dashboard/admin-bootstrap.min.js"></script>
 	<!-- MDB core JavaScript -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
@@ -235,7 +192,8 @@
 			$('#toggle').trigger('click');
 		});
 
-	</script>        
+	</script>
+
 </body>
 
 </html>

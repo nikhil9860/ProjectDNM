@@ -1,8 +1,8 @@
 <%@page import="com.java.POJO.DrRegisterPojo"%>
 <!DOCTYPE html>
-<%@taglib  prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
-
+   
 <head>
 
 	<meta charset="utf-8">
@@ -58,8 +58,11 @@
 		}
 	</style>
 </head>
-<%! String gender,category; %>
-<% DrRegisterPojo pojo = (DrRegisterPojo)session.getAttribute("doctor_display_info");
+<%! String gender,category;
+DrRegisterPojo pojo;
+%>
+<%  pojo = (DrRegisterPojo)request.getAttribute("doctor_display_info");
+   
     gender=pojo.getGender();
     category=pojo.getCategory_name();
 
@@ -84,13 +87,15 @@
                                                 
                                                 <div class="text-xs-center">
                         
-                                
-                                <s:if test="hasActionMessages()">
+            
+                                                    
+                                <%-- <s:if test="hasActionMessages()">
                                  
-                                    <div class="text-xs-center" style="color: green">
+                                    <div class="text-xs-center" style="color: red">
                                         <s:actionmessage/>
                                 </s:if>
 
+                                        --%>
 
 				</div>
 				

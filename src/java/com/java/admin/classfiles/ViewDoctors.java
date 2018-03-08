@@ -121,7 +121,8 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
                     
                  
                     pojo.setCategory_name(rs_cat.getString(2));
-                    session.put("doctor_display_info", pojo);
+                    //session.put("doctor_display_info", pojo);
+                    req.setAttribute("doctor_display_info",pojo );
                 }
                 
             

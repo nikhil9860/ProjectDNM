@@ -176,6 +176,7 @@
 								<option value="Dietition">Dietition</option>
 								<option value="Neurologist">Neurologist</option>
 								<option value="Orthodentist">Orthodentist</option>
+                                                                <option value="Or">Or</option>
 								 </select>
 							</div>
 						</div>
@@ -197,7 +198,7 @@
 
                                                                      
 						
-                                                                        <input type="text" id="form7" name="clinicaddress" required=""  class="form-control">
+                                                                        <input type="text" id="form7" name="clinicaddress" readonly="" required=""   class="form-control">
 									<label for="form7">Clinic Address</label>
 
                                                                         <input type="hidden" id="cordinates" name="cordinate"> 
@@ -227,26 +228,25 @@
 								</div>
 							</div>
 						</div>
-							<div class="text-xs-center"><hr>
+<!--							<div class="text-xs-center"><hr>
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>User Credentials</b></font>
-					</div>
+					</div>-->
 					
                                 
 						<div class="row">
 							<div class="col-md-6">
 								<!--Input groups-->
-								<div class="md-form input-group">
-									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" class="form-control" id="username" readonly="" required=""  name="username" placeholder="Username" aria-describedby="basic-addon1">
+<!--								<div class="md-form input-group">
+									<i class="fa fa-user prefix"></i>-->
+                                                                        <input type="hidden" class="form-control" id="username"  readonly="" required=""  name="username" placeholder="Username" aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="md-form input-group">
-								<i class="fa fa-lock prefix"></i>
-                                                                <input type="password" class="form-control" required="" name="password" placeholder="Doctors Password" aria-describedby="basic-addon2">
+							
+								
+                                                    <input type="hidden" name="password">
 									 
 								</div>
-							</div>
+							
 						</div>
 					<div class="modal-footer text-xs-center">
                                             <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >

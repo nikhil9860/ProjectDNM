@@ -5,6 +5,8 @@
  */
 package com.java.POJO;
 
+import com.java.password.PasswordAutoGenerate;
+
 /**
  *
  * @author nikhil
@@ -254,7 +256,7 @@ public class DrRegisterPojo {
      * @param password the password to set
      */
     public void setPassword(String password) {
-        this.password = password;
+        this.password = PasswordAutoGenerate.getPass();
     }
     
      /**

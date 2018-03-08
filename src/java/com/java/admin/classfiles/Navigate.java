@@ -11,7 +11,6 @@ package com.java.admin.classfiles;
  */
 public class Navigate {
     
-    
     public  String navigate(){
         return "success";
     }

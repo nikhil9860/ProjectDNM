@@ -7,7 +7,9 @@ package com.java.admin.classfiles;
 
 import com.java.DAO.DrRegisterDAO;
 import com.java.POJO.DrRegisterPojo;
+import com.java.email.EmailUtility;
 import com.java.email.SendEmail;
+import com.java.password.PasswordAutoGenerate;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.ValidationAware;
@@ -24,8 +26,8 @@ import com.opensymphony.xwork2.ValidationAware;
 public class DrRegisterProcess extends ActionSupport implements ModelDriven<DrRegisterPojo>,ValidationAware {
 
     DrRegisterPojo pojo = new DrRegisterPojo();
-    
-    
+   
+     
     @Override
     public DrRegisterPojo getModel() {
         return pojo;

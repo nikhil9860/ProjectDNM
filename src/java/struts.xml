@@ -4,7 +4,7 @@
 
 <struts>
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
+    <package name="admin" extends="struts-default">
         
 <!--        for admin login -->
         <action name="AdminLogin" class="com.java.admin.classfiles.AdminLogin" >
@@ -64,9 +64,34 @@
         <action name="ViewAppUsers" class="com.java.admin.classfiles.ViewAppUsers" >
             
             <result name="success">ViewAppUsers.jsp</result>
-             
-                
+                      
         </action>
         
+         
     </package>
+    
+    <package name="doctor" extends="struts-default" >
+        
+        <action name="LoginDoctor" class="com.java.doctor.classfiles.LoginDoctorProcess">
+            <result name="success">DoctorDashBoard.jsp</result>
+            <result name="fail">LoginDr.jsp</result>
+        </action>
+        
+        <action name="AddReceptionPage" class="com.java.admin.classfiles.Navigate" method="navigate"  >
+            
+            <result name="success">AddReception.jsp</result>
+            
+           </action>
+        
+           <action name="ReceptionRegister" class="com.java.doctor.classfiles.ReceptionRegisterProcess">
+            
+               <result name="success">DoctorDashBoard.jsp</result> 
+               <result name="fail">LoginDr.jsp</result>  
+               
+           </action>
+         
+        
+    </package>
+    
+    
 </struts>

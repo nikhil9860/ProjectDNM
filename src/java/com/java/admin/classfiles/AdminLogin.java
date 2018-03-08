@@ -10,13 +10,17 @@ import com.java.POJO.AdminPojo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.ValidationAware;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author nikhil
  */
-public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,ValidationAware{
+public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,ValidationAware,SessionAware{
 
+    Map<String, Object> session;
+    
      AdminPojo pojo = new  AdminPojo();
     
     @Override
@@ -33,6 +37,7 @@ public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,
         
             if(DataBaseHandler.doLogin(sql)){
                 
+                session.put("username",pojo.getUsername());
                 return SUCCESS;
                 
             }else{
@@ -43,6 +48,11 @@ public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,
             }
         
         
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        session=map;
     }
         
 }

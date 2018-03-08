@@ -5,6 +5,21 @@
        String feedback_count;
     %>
 <head>
+    
+    <%
+        try{
+    if(session.getAttribute("username").toString()==null){
+        response.sendRedirect("LoginAdmin.jsp");
+    }
+    appuser_count=session.getAttribute("appuser_count").toString();
+    doctor_count =(String)session.getAttribute("doctor_count");
+    feedback_count =(String)session.getAttribute("feedback_count");
+        }
+        catch(Exception e){
+         response.sendRedirect("LoginAdmin.jsp");
+
+        }
+    %>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,7 +65,7 @@
 									<i class="fa fa-users"></i>
 								</div>
 								<p>No Of App Users</p>
-                                                                <h4><%appuser_count=session.getAttribute("appuser_count").toString();
+                                                                <h4><%
                                                                         out.print(appuser_count);
                                                                     %></h4>
 							</div>
@@ -74,7 +89,7 @@
                                                                 
 								<p>No of doctors</p>
                                                                 <h4><%
-                                                                     doctor_count =(String)session.getAttribute("doctor_count");
+                                                                     
                                                                     out.print(doctor_count);
                                                                     %></h4>
 							</div>
@@ -97,7 +112,7 @@
 								</div>
 								<p>No Of Feedback</p>
 								<h4><%
-                                                                     feedback_count =(String)session.getAttribute("feedback_count");
+                                                                     
                                                                     out.print(feedback_count);
                                                                     %></h4>
 							</div>

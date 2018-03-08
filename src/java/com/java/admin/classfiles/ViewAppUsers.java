@@ -12,15 +12,20 @@ import com.opensymphony.xwork2.ModelDriven;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author nikhil
  */
-public class ViewAppUsers extends ActionSupport implements ModelDriven<AppUsersPojo> , SessionAware{
+public class ViewAppUsers extends ActionSupport implements ModelDriven<AppUsersPojo> ,ServletRequestAware{
     
     AppUsersPojo pojo = new AppUsersPojo();
+    
+    HttpServletRequest req;
     
     ArrayList<AppUsersPojo> list = new ArrayList<AppUsersPojo>();
     
@@ -39,6 +44,10 @@ public class ViewAppUsers extends ActionSupport implements ModelDriven<AppUsersP
                 
                 AppUsersPojo pojo = new AppUsersPojo(rs.getString("name"),rs.getString("user_email_id"),rs.getString("mobile_number"),rs.getString("location"),rs.getString("gender"),rs.getString("date_of_birth"));
                 
+                System.out.println("////////////"+pojo.getName());
+                list.add(pojo);
+                
+                req.setAttribute("appuser_info",list);
                 
             }
             
@@ -50,15 +59,16 @@ public class ViewAppUsers extends ActionSupport implements ModelDriven<AppUsersP
         return SUCCESS;
     }
 
-    @Override
-    public void setSession(Map<String, Object> map) {
-        
-        session=map;
-    }
+    
 
     @Override
     public AppUsersPojo getModel() {
         return pojo;
+    }
+
+    @Override
+    public void setServletRequest(HttpServletRequest hsr) {
+        req=hsr;
     }
     
 }

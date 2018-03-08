@@ -5,61 +5,23 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!--<meta http-equiv="x-ua- compatible" content="ie=edge">
+	<!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
 
-	<title>Sign-Up Form </title>
-
-	<!-- Meta OG -->
-	<meta property="og:title" content="Minimalistic Sign Up form for Material Admin Dashboard">
-	<meta property="og:description" content="Simple, yet efficient sign up for for all the purpose you can imagine.">
-	<meta property="og:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg">
-	<meta property="og:url" content="http://mdbootstrap.com/live/_MDB/templates/Admin/login.html">
-	<meta property="og:site_name" content="mdbootstrap.com">
-	<!-- /Meta OG -->
-	<!-- Twitter Card -->
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:description" content="Simple, yet efficient sign up for for all the purpose you can imagine." />
-	<meta property="twitter:title" content="Minimalistic Sign Up form for Material Admin Dashboard" />
-	<meta property="twitter:site" content="@MDBootstrap" />
-	<meta property="twitter:image" content="http://mdbootstrap.com/img/Live/MDB/admin-login.jpg" />
-	<meta property="twitter:creator" content="@MDBootstrap" />
-	<!-- /Twitter Card -->
+	<title>View Holidays</title>
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 	<!-- Bootstrap core CSS -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/bootstrap.min.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-bootstrap.min.css" rel="stylesheet" />
 	<!-- Material Design Bootstrap -->
-	<!--<link href="http://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
-	<link href="css/mdb.min.css" rel="stylesheet" />
-
-	<!-- Your custom styles (optional) -->
-	<link href="css/style.css" rel="stylesheet">
-	<style>
-		body {
-			font-family: "Roboto", sans-serif;
-			background-color: #eee;
-		}
-
-		.login-form {
-			margin-top: 8rem;
-		}
-
-		.card {
-			width: 100%;
-		}
-
-		.elegant-white-skin .tag, .elegant-white-skin .form-header, .elegant-white-skin .card-header {
-			background-color: #4c8bf5;
-		}
-	</style>
+	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
+	<link href="css/Dashboard/admin-mdb.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-sn elegant-white-skin">
-    
-    <%@include file="headerDr.html"  %>
+    <form method="post" action="AddWalkin">
+    <%@include file="headerDr.jsp"  %>
             <div class="container">
 		
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
@@ -76,14 +38,14 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" id="pname" class="form-control">
+									<input type="text" name="pname" class="form-control">
 									<label for="pname">Patient name</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" id="pcontactno" class="form-control">
+									<input type="text" name="pcontactno" class="form-control">
 									<label for="pcontactno">Contact No.</label>
 								</div>
 							</div>
@@ -92,24 +54,26 @@
 							   <div class="col-md-6">
 								<!--File Input-->
 								<!--<i class="fa fa-user prefix"></i>-->
-                                                                <select class="form-control" id="gender"> 
+                                                                <select class="form-control" name="gender"> 
 								 <option disabled="disabled" selected="selected" >Select Gender</option>
-								 <option value="1">Male</option>
-								 <option value="2">Female</option>
+								 <option value="male">Male</option>
+								 <option value="female">Female</option>
 								 </select>
 							</div>
 					<div class="col-md-6">
-	                                    
-                                                <input type="text" id="DOB" class="form-control datepicker" value="Select Date Of Birth">
-                                      
-                                            </div>
-                                      	                 </div>						
+								<div class="md-form">
+									<i class="fa fa-birthday-cake prefix"></i>
+									<input type="date" name="DOB" class="form-control">
+									
+								</div>
+							</div>
+                  </div>						
                                         
 					<div class="row">
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>
-									<input type="text" id="padd" class="form-control">
+									<input type="text" name="patientaddress" class="form-control">
 									<label for="padd">Patient Address</label>
 								</div>
 							</div>
@@ -120,14 +84,20 @@
                                                     <font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b> Appointment Information</b></font>
 					</div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
-							<i class="fa fa-Clock prefix">Appointment time </i>
-							<input type="time" class="clockpicker-am-pm-block" id="op1">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-Clock prefix">Appointment time </i>
+                                                    </div>
+                                                    <div class="col-md-4">
+							
+							<input type="time" class="clockpicker-am-pm-block" name="app_time">
 						
 							</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-Calender prefix">Appointment Date </i>
+                                                    </div>
+                                                    <div class="col-md-4">
 	                                                                                
-                                                <input type="text" id="appdate" class="form-control datepicker" value="Select Date of appointment">
+                                                <input type="date" name="app_date" class="form-control">
                                       
                                         </div>
                                       	
@@ -136,7 +106,7 @@
 						
 						
                                     <div class="modal-footer text-xs-center">
-                                            <button type="button" class="btn btn-primary"><i class="fa fa-save left"></i> Save</button>
+                                            <input type="submit" class="btn btn-primary"/>
 					</div>
 
 				</div>
@@ -147,7 +117,7 @@
        
 
 
-
+</form>
 	<!-- SCRIPTS -->
 	<!-- JQuery -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>-->

@@ -5,10 +5,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!--  <meta http-equiv="x-ua-compatible" content="ie=edge">-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Login Form</title>
-
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
@@ -40,7 +39,7 @@
 
 
 <body class="fixed-sn elegant-white-skin">
-    <form action="LoginDoctor" method="post">
+
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-5 login-form mx-auto float-xs-none">
@@ -50,27 +49,34 @@
                     <div class="card-block">
 
                         <!--Header-->
-                        <div class="form-header">
-                            <h3><i class="fa fa-lock"></i> Doctor Login:</h3>
+                       <div class="form-header">
+                            <h3><i class="fa fa-"></i>Change Password</h3>
                         </div>
+
 
                         <!--Body-->
-                        <div class="md-form">
-                            <i class="fa fa-envelope prefix"></i>
-                            <input type="text" name="uname" class="form-control validate">
-                            <label for="form2" data-error="wrong" data-success="right">Your Username</label>
-                        </div>
+						
+						<div class="md-form">
+							<i class="fa fa-lock prefix"></i>
+							<input type="text" id="form1" class="form-control" required>
+							<label for="form1">Old Password</label>
+						</div>
 
-                        <div class="md-form">
-                            <i class="fa fa-lock prefix"></i>
-                            <input type="password" name="password" class="form-control validate">
-                            <label for="form4" data-error="wrong" data-success="right">Your password</label>
+                       <div class="md-form">
+							<i class="fa fa-lock prefix"></i>
+							<input type="text" id="form1" class="form-control" required>
+							<label for="form1">New Password</label>
+						</div>
+<div class="md-form">
+							<i class="fa fa-lock prefix"></i>
+							<input type="text" id="form1" class="form-control" required>
+							<label for="form1">Confirm New Password</label>
+						</div>
+ <div class="md-form">
+                                                     
                         </div>
                         <div class="text-xs-center">
-                            <button class="btn btn-primary">Login</button>
-                        </div>
-                          <div class="text-xs-center">
-                              <a href="ForgotPassword.jsp">Forgot Password</a>
+                            <button class="btn btn-primary">Submit</button>
                         </div>
 
                     </div>
@@ -83,7 +89,7 @@
             </div>
         </div>
     </div>
-    </form>
+
 
     <!-- SCRIPTS -->
 
