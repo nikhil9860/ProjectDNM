@@ -19,7 +19,7 @@ public class ReceptionRegisterProcess implements ModelDriven<ReceptionistPojo>{
     @Override
     public ReceptionistPojo getModel() {
         return pojo;
-                
+             //////////   
     }
  
     public String execute()
