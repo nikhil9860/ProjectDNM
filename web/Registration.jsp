@@ -93,6 +93,7 @@
 
 
 				</div>
+                                                    <div class="text-xs-center">
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Personal Information</b></font>
 					</div>
 				<!--Body-->
@@ -105,7 +106,7 @@
 									<label for="fullname">Full name</label>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<!--File Input-->
 								<form>
 									<div class="file-field">
@@ -120,11 +121,7 @@
 								</form>
 
 							</div>
-							<div class="col-md-2">
-							<div class="md-form">
-									<img src="images/Logo.jpg" height="100" width="100"/>
-								</div>
-							</div>
+							
 						</div>
 						<div class="row">
 							<div class="col-md-6">
@@ -176,7 +173,7 @@
 								<option value="Dietition">Dietition</option>
 								<option value="Neurologist">Neurologist</option>
 								<option value="Orthodentist">Orthodentist</option>
-                                                                <option value="Or">Or</option>
+                                                                
 								 </select>
 							</div>
 						</div>
@@ -199,7 +196,7 @@
                                                                      
 						
                                                                         <input type="text" id="form7" name="clinicaddress" readonly="" required=""   class="form-control">
-									<label for="form7">Clinic Address</label>
+									
 
                                                                         <input type="hidden" id="cordinates" name="cordinate"> 
 								</div>
@@ -245,16 +242,15 @@
 								
                                                     <input type="hidden" name="password">
 									 
-								</div>
 							
-						</div>
+							
+						
 					<div class="modal-footer text-xs-center">
                                             <input type="submit" class="btn btn-primary" onclick="setUserName()" value="Save And Next" >
 					</div>                  
 			</div>
 		</div>
 	</div>
-    </div>
        <script type="text/javascript">
 	
 var popup ;
