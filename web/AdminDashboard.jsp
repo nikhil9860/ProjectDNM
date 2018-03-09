@@ -53,18 +53,20 @@
 
 		  
 		  <section class="section section-intro">
-
+                                
 				<!--First row-->
 				<div class="row">
 					<!--First column-->
+                                        
 					<div class="col-md-4">
+                                                <a href="ViewAppUsers">
 						<!--Card Primary-->
 						<div class="card classic-admin-card deep purple">
 							<div class="card-block">
 								<div class="pull-xs-right">
 									<i class="fa fa-users"></i>
 								</div>
-								<p>No Of App Users</p>
+                                                            <p>No Of App Users</p>
                                                                 <h4><%
                                                                         out.print(appuser_count);
                                                                     %></h4>
@@ -76,6 +78,7 @@
 						</div>
 						<!--/.Card Primary-->
 					</div>
+                </a>              
 					<!--/First column-->
 					<!--Second column-->
                                         <a href="ViewDoctors">
