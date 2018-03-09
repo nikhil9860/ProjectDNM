@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -48,15 +48,21 @@
             <display:column property="username" sortable="true" title="Email"></display:column>
             <display:column property="clinicname"  title="ClincName"></display:column>
             <display:column property="doctor_contact_number"  title="Personal no"></display:column>
-            <display:column title="action"><a href="deleteDoctor?username=${row.username}">delete</a></display:column>
-            <display:column title="action"><a href="updateDoctor?username=${row.username}">update</a></display:column>
-            <display:column title="action"><a href="viewCompleteinfoDoctor?username=${row.username}">view</a></display:column>
+            <display:column title="action"><a href="deleteDoctor?username=${row.username}">Delete</a></display:column>
+            <display:column title="action"><a href="updateDoctor?username=${row.username}">Update</a></display:column>
+            <display:column title="action"><a href="viewCompleteinfoDoctor?username=${row.username}">View</a></display:column>
+            <display:column title="action"><a href="ViewFeedback?username=${row.username}">Feedback</a></display:column>
                                  
         </display:table>
                 </main>
 	<!--/Main layout-->
+                </div>
+    
+</div>
+                    
+                </div>  
+    
 
-<!--
 	 SCRIPTS 
 	 JQuery 
 	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>
@@ -115,7 +121,7 @@
 			$('#toggle').trigger('click');
 		});
 
-	</script>-->
+	</script>
 
 </body>
 

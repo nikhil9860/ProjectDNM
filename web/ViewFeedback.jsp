@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
    
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+    
 <head>
 
 	<meta charset="utf-8">
@@ -25,87 +30,28 @@
 	<!--Main layout-->
 	<main class="">
 		<div class="container-fluid">
-<div class="card card-cascade ">
+<div class="card card-cascade narrower ">
 	<div class="card-block pt-4">
 
 			<div class="form-header">
 
-                            <h3>List of Doctors</h3>
+                            <h3>FeedBack of Doctor</h3>
                         </div>
 
-			<section class="section">
-
-				<!--Main row-->
-				<div class="row">
-
-								<!--/First row-->
-								<!--Second row-->
-								<div class="row mb-0">
-									<!--First column-->
-									<div class="col-md-12">
-
-										<!--Panel content-->
-										<div class="card-block pt-0">
-											<!--Table-->
-											<table class="table table-hover">
-												<!--Table head-->
-												<thead>
-													<tr class="product-card">
-														<th>Sr.No.</th>
-														<th>User Name</th>
-														<th>Dr. Name</th>
-														<th>Feedback</th>
-													</tr>
-												</thead>
-												<!--/Table head-->
-												<!--Table body-->
-												<tbody>
-													<tr class="none-top-border">
-														<td>1</td>
-														<td>Ankita Athavale</td>
-														<td>Dr.Anita</td>
-														<td>Experience was good</td>
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>Dr.Ankita Athavale</td>
-														<td>Dr.Satish</td>
-														<td>The atmosphere of clinic is pleasant.</td>
-														
-														</tr>
-													</tbody>
-												<!--/Table body-->
-											</table>
-											<!--/Table-->
-
-										</div>
-										<!--/.Panel content-->
-
+            
+            
+            <display:table id="row" name="feedbacks" pagesize="7" requestURI="ViewFeedback" class="table table-hover">
+            
+            <display:column property="doctor_name" title="Doctor Name"></display:column>
+            <display:column property="app_user_name" sortable="true" title="Appuser Name"></display:column>
+            <display:column property="feedback" title="FeedBack"></display:column>
+            <display:column property="rating" title="Rating"></display:column>
+            
+            </display:table>	
 									</div>
 									<!--/First column-->
 								</div>
 								<!--/Second row-->
-
-							</div>
-							<!--/Admin panel-->
-
-						</div>
-						<!--/.Card-->
-					</div>
-
-				</div>
-				<!--/Main row-->
-
-			</section>
-			<!--/Section: Main chart-->
-			<!--Section: Charts-->
-			<!--/Section: Charts-->
-			<!--Section: Notifications-->
-			<!--/Section: Notifications-->
-			<!--Classic admin cards-->
-			
-
-		</div>
 	</main>
 	<!--/Main layout-->
 

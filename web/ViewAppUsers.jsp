@@ -73,14 +73,55 @@
 
 	<!-- Bootstrap tooltips -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>-->
-	<script src="js/Dashboard/admin-tether.min.js"></script>
+	<script src="../version 1.1 CTS/js/Dashboard/admin-tether.min.js"></script>
 	<!-- Bootstrap core JavaScript -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>-->
-	<script src="js/Dashboard/admin-bootstrap.min.js"></script>
+	<script src="../version 1.1 CTS/js/Dashboard/admin-bootstrap.min.js"></script>
 	<!-- MDB core JavaScript -->
 	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
+<script>
+		// Data Picker Initialization
+		$('.datepicker').pickadate();
 
+
+		// Material Select Initialization
+		$(document).ready(function () {
+			$('.mdb-select').material_select();
+		});
+
+		// Sidenav Initialization
+		$(".button-collapse").sideNav();
+
+		// Tooltips Initialization
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
+
+	<script type="text/javascript">
+
+		// show/hide customizer
+		$('#toggle').click(function (e) {
+			e.preventDefault();
+			$('#customizer').toggleClass('visible');
+		});
+
+		// change skin
+		$('a[data-skin]').on('click', function (e) {
+			e.preventDefault();
+
+			// remove old class
+			document.body.className = document.body.className.replace(/(?:(\w+)-?)(\w+)-(skin)/g, "");
+
+			// add new class
+			$('body').addClass($(this).attr("data-skin") + '-skin');
+
+			// trigger toggle button
+			$('#toggle').trigger('click');
+		});
+
+	</script>
 	
 </body>
 
