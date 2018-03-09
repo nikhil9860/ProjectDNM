@@ -19,7 +19,7 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class AdminLogin extends ActionSupport implements ModelDriven<AdminPojo>,ValidationAware,SessionAware{
 
-    Map<String, Object> session;
+    public Map<String, Object> session;
     
      AdminPojo pojo = new  AdminPojo();
     

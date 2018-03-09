@@ -44,7 +44,7 @@ public class ViewAppUsers extends ActionSupport implements ModelDriven<AppUsersP
                 
                 AppUsersPojo pojo = new AppUsersPojo(rs.getString("name"),rs.getString("user_email_id"),rs.getString("mobile_number"),rs.getString("location"),rs.getString("gender"),rs.getString("date_of_birth"));
                 
-                System.out.println("////////////"+pojo.getName());
+                
                 list.add(pojo);
                 
                 req.setAttribute("appuser_info",list);

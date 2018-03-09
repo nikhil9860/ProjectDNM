@@ -11,16 +11,51 @@ package com.java.POJO;
  */
 public class FeedBackPojo {
  
-    String feedback,app_user_name,doctor_name;
+    private String feedback;
+    private String app_user_name;
+    private String doctor_name;
+    private String rating;
 
+    public FeedBackPojo(String feedback, String app_user_name, String doctor_name, String rating) {
+        this.feedback = feedback;
+        this.app_user_name = app_user_name;
+        this.doctor_name = doctor_name;
+        this.rating = rating;
+    }
+
+    
+    
     public FeedBackPojo() {
         
     }
 
-    public FeedBackPojo(String feedback, String app_user_name, String doctor_name) {
-        this.feedback = feedback;
-        this.app_user_name = app_user_name;
-        this.doctor_name = doctor_name;
+    /**
+     * @return the feedback
+     */
+    public String getFeedback() {
+        return feedback;
     }
-    
+
+    /**
+     * @return the app_user_name
+     */
+    public String getApp_user_name() {
+        return app_user_name;
+    }
+
+    /**
+     * @return the doctor_name
+     */
+    public String getDoctor_name() {
+        return doctor_name;
+    }
+
+    /**
+     * @return the rating
+     */
+    public String getRating() {
+        return rating;
+    }
+
+   
 }

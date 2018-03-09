@@ -40,7 +40,7 @@
             
         </action>
         
-        <action name="RegisterDoctor" class="com.java.admin.classfiles.Navigate" method="navigate">
+        <action name="RegisterDoctor" class="com.java.navigate.Navigate" method="navigate">
             <result name="success">Registration.jsp</result>  
         </action>
          
@@ -68,6 +68,11 @@
         </action>
         
          
+        <action name="ViewFeedback" class="com.java.admin.classfiles.ViewFeedBack">
+            <result name="success">ViewFeedback.jsp</result>
+        </action>
+         
+         
     </package>
     
     <package name="doctor" extends="struts-default" >
@@ -77,7 +82,7 @@
             <result name="fail">LoginDr.jsp</result>
         </action>
         
-        <action name="AddReceptionPage" class="com.java.admin.classfiles.Navigate" method="navigate"  >
+        <action name="AddReceptionPage" class="com.java.navigate.Navigate" method="navigate"  >
             
             <result name="success">AddReception.jsp</result>
             
