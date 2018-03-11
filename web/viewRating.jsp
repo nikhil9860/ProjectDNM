@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-   
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<DOCTYPE html>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<%!String doctor_name;%>    
-<% doctor_name = request.getAttribute("doctor_name").toString();%>
+
+
+<html lang="en">
+
 <head>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!--<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<title>View Feedback</title>
+	<title>View Doctors</title>
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
@@ -24,29 +25,29 @@
 	<!--<link href="https://mdbootstrap.com/live/_MDB/templates/Admin/css/mdb.css" rel="stylesheet">-->
 	<link href="css/Dashboard/admin-mdb.css" rel="stylesheet" />
 </head>
+<title>Doctor List</title>
 
 <body class="fixed-sn elegant-white-skin">
 	<!--Double Navigation-->
-	        <%@include file="header.html" %><!--/Double Navigation-->
-	<!--Main layout-->
-	<main class="">
+	        <%@include file="header.html" %>
+<main class="">
 		<div class="container-fluid">
 <div class="card card-cascade narrower ">
 	<div class="card-block pt-4">
 
 			<div class="form-header">
 
-                            <h3>FeedBack of Doctor</h3>
+                            <h3>Ratings  of Doctor</h3>
                         </div>
 
-            <center> <h4>Doctor Name :<%=doctor_name%> </h4> </center>
             
             
-              <display:table id="row" name="feedbacks" pagesize="7" requestURI="ViewFeedback" class="table table-hover">
+            
+              <display:table id="row" name="doctor_ratings" pagesize="7" requestURI="ViewRating" class="table table-hover">
             
             
-            <display:column property="app_user_name" sortable="true" title="Appuser Name"></display:column>
-            <display:column property="rating" title="Rating"></display:column>
+            <display:column property="doctor_name" sortable="true" title="Appuser Name"></display:column>
+            <display:column property="average" title="Rating"></display:column>
             
 </display:table>	
 									</div>
@@ -57,22 +58,21 @@
 	<!--/Main layout-->
 
 
-	<!-- SCRIPTS -->
-	<!-- JQuery -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>-->
+	  
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>
 	<script src="js/Dashboard/admin-jquery-2.2.3.min.js"></script>
 	<script>
 		$("#navigation").load("components/navigation.html");
 	</script>
 
-	<!-- Bootstrap tooltips -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>-->
-	<script src="js/Dashboard/admin-tether.min.js"></script>
-	<!-- Bootstrap core JavaScript -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>-->
-	<script src="js/Dashboard/admin-bootstrap.min.js"></script>
-	<!-- MDB core JavaScript -->
-	<!--<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>-->
+	 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>
+	<script src="../version 1.1 CTS/js/Dashboard/admin-tether.min.js"></script>
+	 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>
+	<script src="../version 1.1 CTS/js/Dashboard/admin-bootstrap.min.js"></script>
+	 
+	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
 <script>
 		// Data Picker Initialization

@@ -72,7 +72,11 @@
             <result name="success">ViewFeedback.jsp</result>
         </action>
          
-         
+        <action name="ViewRating" class="com.java.admin.classfiles.ViewRating">
+            <result name="success">viewRating.jsp</result>
+        </action>
+
+        
     </package>
     
     <package name="doctor" extends="struts-default" >

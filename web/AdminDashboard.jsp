@@ -7,6 +7,9 @@
 <head>
     
     <%
+        
+        
+        
         try{
     if(session.getAttribute("username").toString()==null){
         response.sendRedirect("LoginAdmin.jsp");

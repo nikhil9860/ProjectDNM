@@ -16,8 +16,7 @@ public class FeedBackPojo {
     private String doctor_name;
     private String rating;
 
-    public FeedBackPojo(String feedback, String app_user_name, String doctor_name, String rating) {
-        this.feedback = feedback;
+    public FeedBackPojo(String app_user_name, String doctor_name, String rating) {
         this.app_user_name = app_user_name;
         this.doctor_name = doctor_name;
         this.rating = rating;
