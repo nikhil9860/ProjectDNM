@@ -54,7 +54,7 @@ public class DoctorDataBaseHandler {
                 
             con=getConnection();
             Statement s=con.createStatement();
-            System.out.println(q);
+            
             ResultSet rs=s.executeQuery(q);
             if(rs.next())
                         return true;
@@ -69,12 +69,13 @@ public class DoctorDataBaseHandler {
     }
     
    
+    
     public static boolean doInsert(String q){
         try{
                 
             con=getConnection();
             Statement s=con.createStatement();
-            System.out.println(q);
+            
             if(s.executeUpdate(q)>0)
                         return true;
             else 

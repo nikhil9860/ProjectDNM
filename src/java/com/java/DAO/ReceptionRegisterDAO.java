@@ -20,13 +20,16 @@ import java.util.logging.Logger;
  * @author nikhil
  */
 public class ReceptionRegisterDAO {
+    
+//    for reception register
+    
     public static boolean Register(ReceptionistPojo rcp)
     {
          try {
             int Doctorid=1;
             String id;
             id = LoginDoctorProcess.session.get("uname").toString();
-            System.out.println(id);
+            
             Connection con=DoctorDataBaseHandler.getConnection();
             Statement st=con.createStatement();
             ResultSet rs=st.executeQuery("select Doctor_id from Doctors where Doctor_uname='"+id+"';");
