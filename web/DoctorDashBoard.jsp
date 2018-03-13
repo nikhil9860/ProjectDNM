@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <%! String total_appoitments; %>
+    <% total_appoitments= request.getAttribute("total_appointments").toString(); %>
 <head>
 
 	<meta charset="utf-8">
@@ -57,7 +58,7 @@
 									<i class="fa fa-users"></i>
 								</div>
 								<p>Total no Of Appointments </p>
-								<h4>2000$</h4>
+                                                                <h4> <%=total_appoitments%> </h4>
 							</div>
 							<progress class="progress progress-success" value="25" max="100">25%</progress>
 							<div class="card-block">

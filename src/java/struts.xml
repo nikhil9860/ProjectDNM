@@ -82,9 +82,14 @@
     <package name="doctor" extends="struts-default" >
         
         <action name="LoginDoctor" class="com.java.doctor.classfiles.LoginDoctorProcess">
-            <result name="success">DoctorDashBoard.jsp</result>
+            <result name="success" type="chain">DoctorDashBoard</result>
             <result name="fail">LoginDr.jsp</result>
         </action>
+        
+        <action name="DoctorDashBoard" class="com.java.doctor.classfiles.FetchDoctorDashBoard">
+            <result name="success">DoctorDashBoard.jsp</result> 
+        </action>
+            
         
         <action name="AddReceptionPage" class="com.java.navigate.Navigate" method="navigate"  >
             

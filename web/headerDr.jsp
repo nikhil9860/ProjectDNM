@@ -10,7 +10,7 @@
 			<li>
 				<div class="user-box">
 					
-                                    <p class="user text-xs-center"><a href="DoctorDashBoard.jsp"><i class="fa fa-arrow-circle-up prefix"></i> Go to DashBoard</a></p>
+                                    <p class="user text-xs-center"><a href="DoctorDashBoard"><i class="fa fa-arrow-circle-up prefix"></i> Go to DashBoard</a></p>
 				</div>
 			</li>
 			<!--/. Logo -->
