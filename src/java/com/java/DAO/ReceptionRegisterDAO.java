@@ -25,27 +25,29 @@ public class ReceptionRegisterDAO {
     
     public static boolean Register(ReceptionistPojo rcp)
     {
-         try {
-            int Doctorid=1;
-            String id;
-            id = LoginDoctorProcess.session.get("uname").toString();
-            
-            Connection con=DoctorDataBaseHandler.getConnection();
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select Doctor_id from Doctors where Doctor_uname='"+id+"';");
-            if(rs.next())
-            {
-                Doctorid=rs.getInt(1);
-            }
-       
-        String q="insert into Receptioninst(rname,rphoto,emailid,contact_no,gender,dateOfBirth,uname,password,doctor_id) values('"+rcp.getName()+"','"+rcp.getPhoto()+"','"+rcp.getEmailid()+"','"+rcp.getContactno()+"','"+rcp.getGender()+"','"+rcp.getDOB()+"','"+rcp.getUname()+"','"+rcp.getPassword()+"',"+Doctorid+")";
-        if(DoctorDataBaseHandler.doInsert(q))
-        return true; 
-           
-    } catch (SQLException ex) {
-          Logger.getLogger(ReceptionRegisterDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
+//         try {
+//            int Doctorid=1;
+//            String id;
+//            id = LoginDoctorProcess.session.get("uname").toString();
+//            
+//            Connection con=DoctorDataBaseHandler.getConnection();
+//            Statement st=con.createStatement();
+//            ResultSet rs=st.executeQuery("select Doctor_id from Doctors where Doctor_uname='"+id+"';");
+//            if(rs.next())
+//            {
+//                Doctorid=rs.getInt(1);
+//            }
+//       
+//        String q="insert into Receptioninst(rname,rphoto,emailid,contact_no,gender,dateOfBirth,uname,password,doctor_id) values('"+rcp.getName()+"','"+rcp.getPhoto()+"','"+rcp.getEmailid()+"','"+rcp.getContactno()+"','"+rcp.getGender()+"','"+rcp.getDOB()+"','"+rcp.getUname()+"','"+rcp.getPassword()+"',"+Doctorid+")";
+//        if(DoctorDataBaseHandler.doInsert(q))
+//        return true; 
+//           
+//    } catch (SQLException ex) {
+//          Logger.getLogger(ReceptionRegisterDAO.class.getName()).log(Level.SEVERE, null, ex);
+//      }
     return false;
-}
+    }
     
-}
+    }
+    
+

@@ -90,6 +90,7 @@
             <result name="success">DoctorDashBoard.jsp</result> 
         </action>
             
+         
         
         <action name="AddReceptionPage" class="com.java.navigate.Navigate" method="navigate"  >
             

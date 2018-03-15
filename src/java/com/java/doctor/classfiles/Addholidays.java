@@ -22,26 +22,26 @@ public class Addholidays
 {
     public static boolean addholidays(AddHolidaysPojo ahp)
     {
-        try {
-            int Doctorid=1;
-            String id;
-            id = LoginDoctorProcess.session.get("uname").toString();
-            System.out.println(id);
-            Connection con=DoctorDataBaseHandler.getConnection();
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select Doctor_id from doctors where Doctor_uname='"+id+"';");
-            if(rs.next())
-            {
-                Doctorid=rs.getInt(1);
-            }
-            String q="insert into holidays(doctor_id,date_from,date_to) values("+Doctorid+",'"+ahp.getFromdate()+"','"+ahp.getTodate()+"');";
-            
-            if(DoctorDataBaseHandler.doInsert(q))
-                return true;
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(Addholidays.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            int Doctorid=1;
+//            String id;
+//            id = LoginDoctorProcess.session.get("uname").toString();
+//            System.out.println(id);
+//            Connection con=DoctorDataBaseHandler.getConnection();
+//            Statement st=con.createStatement();
+//            ResultSet rs=st.executeQuery("select Doctor_id from doctors where Doctor_uname='"+id+"';");
+//            if(rs.next())
+//            {
+//                Doctorid=rs.getInt(1);
+//            }
+//            String q="insert into holidays(doctor_id,date_from,date_to) values("+Doctorid+",'"+ahp.getFromdate()+"','"+ahp.getTodate()+"');";
+//            
+//            if(DoctorDataBaseHandler.doInsert(q))
+//                return true;
+//           
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Addholidays.class.getName()).log(Level.SEVERE, null, ex);
+//        }
          return false;
     }
             
