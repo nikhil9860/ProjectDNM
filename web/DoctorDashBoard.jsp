@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
     <%! String total_appoitments; %>
     <% total_appoitments= request.getAttribute("total_appointments").toString(); %>
@@ -115,46 +119,8 @@
 			</section>
 		
 	
-                    <section class="section">  
-                        <div class="row">
-                    			<div class="row mb-0">
-					<div class="col-md-12">
-                                        <div class="card-block pt-0">
-					<table class="table table-hover">
-					<thead>
-					<tr class="product-card">
-					<th>Sr.No.</th>
-					<th>Patient name</th>
-                                        <th>Gender</th>
-                                        <th>Age</th>
-					<th>Ph. No.</th>
-					<th>Address</th>
-					<th>Appoint. time</th>
-                                        <th>Through</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-					<td>1</td>
-					<td>Ankita Athavale</td>
-                                        <td>Female</td>
-                                        <td>22</td>
-					<td>9764699591  </td>
-					<td>pune</td>
-					<td>4:34</td>
-                                        <td>App</td>
-					</tr>
-                                        
-					</tbody>
-					</table>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
     
-                    
-                </div>
+                   </div>
             </div>
         </div>
 	</main>

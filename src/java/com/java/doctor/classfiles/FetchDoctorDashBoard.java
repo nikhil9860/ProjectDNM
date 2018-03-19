@@ -78,6 +78,8 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<D
            while(patient_details.next()){
                PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4));
                
+               System.out.println("/////"+pojo.getPatient_age());
+               
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
                

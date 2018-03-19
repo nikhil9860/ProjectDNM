@@ -40,7 +40,7 @@
             
         </action>
         
-        <action name="RegisterDoctor" class="com.java.navigate.Navigate" method="navigate">
+        <action name="RegisterDoctorpage" class="com.java.admin.classfiles.FetchDoctorCategory">
             <result name="success">Registration.jsp</result>  
         </action>
          

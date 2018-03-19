@@ -41,7 +41,7 @@
 
         <div class="form-header">
 							<h3><i></i> Doctor List  </h3>
-						</div><a href="RegisterDoctor">Add Doctor</a>
+						</div><a href="RegisterDoctorpage">Add Doctor</a>
         <display:table id="row" name="doctorlist" pagesize="7" requestURI="ViewDoctors" class="table table-hover">
             
             <display:column property="fullname" sortable="true" title="FulName"></display:column>

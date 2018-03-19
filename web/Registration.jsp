@@ -1,7 +1,11 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.java.POJO.CategoriesPojo"%>
 <!DOCTYPE html>
 <%@taglib  prefix="s" uri="/struts-tags" %>
 <html lang="en">
 
+    
+    
 <head>
 
 	<meta charset="utf-8">
@@ -78,7 +82,7 @@
 						</div>
 
 						<div class="text-xs-center">
-                                                                <s:if test="hasActionErrors()">
+                                                    <%--  <s:if test="hasActionErrors()">
                             
                                 <div class="text-xs-center" style="color: red">
                             <s:actionerror />
@@ -91,6 +95,7 @@
                                         <s:actionmessage/>
                                 </s:if>
 
+                                                    --%>
 
 				</div>
                                                     <div class="text-xs-center">
@@ -161,20 +166,26 @@
 							<div class="col-md-4">
 								<!--File Input-->
                                                                 
+
                                                                 <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="">Dermatologist</option>
-								<option value="Cardiologist">Cardiologist</option>
-								<option value="E-N-T Specialist">E-N-T Specialist</option>
-								<option value="Dentist">Dentist</option>
-								<option value="Ayurveda">Ayurveda</option>
-								<option value="Homeopath">Homeopath</option>
-								<option value="Psychologist">Psychologist</option>
-								<option value="Dietition">Dietition</option>
-								<option value="Neurologist">Neurologist</option>
-								<option value="Orthodentist">Orthodentist</option>
                                                                 
+                                                                <%
+                                                                    
+                                                                ArrayList<CategoriesPojo> list  = (ArrayList<CategoriesPojo>)request.getAttribute("categories_list");
+                                                               
+                                                                   for(CategoriesPojo pojo: list){
+                                                                   
+                                                                %>
+                                                                
+                                                            
+                                                                 <option value=<%=pojo.getCategorie_id()%>><%=pojo.getCategorie_name()%></option>
+                                                                 
+                                                                 <% } %>
+                                                              
 								 </select>
+                                                                
+                                                                
 							</div>
 						</div>
 						

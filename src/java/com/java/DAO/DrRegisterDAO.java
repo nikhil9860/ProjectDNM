@@ -39,7 +39,7 @@ public class DrRegisterDAO {
             ps.setString(11, pojo.getPicture());
             ps.setString(12, pojo.getGender());
             ps.setString(13, pojo.getCordinate());
-            ps.setInt(14,1);
+            ps.setInt(14,Integer.parseInt(pojo.getCategory()));
            
             if(DataBaseHandler.doInsert(ps)){
                 return  true;
