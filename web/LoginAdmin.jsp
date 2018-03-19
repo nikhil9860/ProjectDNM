@@ -4,6 +4,25 @@
 
 <head>
 
+    <%
+    try{
+        
+        if(session.getAttribute("username") != null ){
+         
+            response.sendRedirect("AdminDashboard.jsp");
+            
+        }
+    
+        
+    }catch(Exception e){
+        
+        response.sendRedirect("LoginAdmin.jsp");
+    }
+    
+    %>
+    
+    
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!--  <meta http-equiv="x-ua-compatible" content="ie=edge"-->
@@ -71,12 +90,14 @@
                             <label for="form4" data-error="wrong" data-success="right">Your password</label>
                         </div>
                         
-                        <s:if test="hasActionErrors()">
+                        <%-- <s:if test="hasActionErrors()">
                             
                             <div class="text-xs-center" style="color: red">
                             <s:actionerror />
                         </div>
                         </s:if>
+                        
+                        --%>
                         <div class="text-xs-center">
                             <button class="btn btn-primary" type="submit">Login</button>
                         </div>

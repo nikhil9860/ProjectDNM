@@ -4,6 +4,30 @@
 <%@taglib  prefix="s" uri="/struts-tags" %>
 <html lang="en">
 
+    <%!
+        
+     ArrayList<CategoriesPojo> list;
+
+    %>
+    
+    <%
+        
+    try{
+        
+          list  = (ArrayList<CategoriesPojo>)request.getAttribute("categories_list");
+        
+        if(session.getAttribute("username") != null){
+            
+        }
+        
+    }catch(Exception e){
+        
+        response.sendRedirect("LoginDr.jsp");
+        
+    }
+    
+    
+    %>
     
     
 <head>
@@ -172,17 +196,29 @@
                                                                 
                                                                 <%
                                                                     
-                                                                ArrayList<CategoriesPojo> list  = (ArrayList<CategoriesPojo>)request.getAttribute("categories_list");
+                                                               try{
+                                                                   
+                                                              
+                                                               
                                                                
                                                                    for(CategoriesPojo pojo: list){
                                                                    
                                                                 %>
                                                                 
                                                             
-                                                                 <option value=<%=pojo.getCategorie_id()%>><%=pojo.getCategorie_name()%></option>
+                                                                 <option value=<%=pojo.getCategorie_id()%>   ><%=pojo.getCategorie_name()%></option>
                                                                  
-                                                                 <% } %>
+                                                                 <% }
+
+        } catch (Exception e){
+        
+        response.sendRedirect("LoginAdmin.jsp");
+
+}
+                                                                 
+                                                                 %>
                                                               
+                                                                 
 								 </select>
                                                                 
                                                                 

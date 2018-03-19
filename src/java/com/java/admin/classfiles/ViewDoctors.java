@@ -7,6 +7,7 @@ package com.java.admin.classfiles;
 
 import com.java.DataBase.DataBaseHandler;
 import static com.java.DataBase.DataBaseHandler.getConnection;
+import com.java.POJO.CategoriesPojo;
 import com.java.POJO.DrRegisterPojo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -31,6 +32,7 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
     Map<String, Object> session;
    
    ArrayList<DrRegisterPojo> list = new ArrayList<DrRegisterPojo>();
+   ArrayList<CategoriesPojo> cat_list = new ArrayList<CategoriesPojo>();
    
    HttpServletRequest req;
     
@@ -121,9 +123,28 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
                     
                  
                     pojo.setCategory_name(rs_cat.getString(2));
-                    //session.put("doctor_display_info", pojo);
+                    
                     req.setAttribute("doctor_display_info",pojo );
                 }
+                
+                
+                String get_all_cat = "select * from Categories";
+                
+                ResultSet rs_all_cat =  DataBaseHandler.getConnection().createStatement().executeQuery(get_all_cat);
+            
+            while(rs_all_cat.next()){
+                CategoriesPojo cat_pojo = new CategoriesPojo();
+                cat_pojo.setCategorie_id(rs_all_cat.getInt(1));
+                cat_pojo.setCategorie_name(rs_all_cat.getString(2));
+                
+                System.out.println("//////////////"+rs_all_cat.getInt(1));
+                System.out.println("//////////////"+rs_all_cat.getString(2));
+                
+                cat_list.add(cat_pojo);
+                
+                req.setAttribute("categories_list",cat_list);
+                                
+            }
                 
             
         }catch(Exception e){

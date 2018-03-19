@@ -1,3 +1,5 @@
+<%@page import="com.java.POJO.CategoriesPojo"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.java.POJO.DrRegisterPojo"%>
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -58,14 +60,48 @@
 		}
 	</style>
 </head>
-<%! String gender,category;
+<%! String gender,category,fullname,email,doctor_number,qualification,clinic_name,clinic_address,
+            clinic_contact,clinic_landline;
 DrRegisterPojo pojo;
-%>
-<%  pojo = (DrRegisterPojo)request.getAttribute("doctor_display_info");
-   
-    gender=pojo.getGender();
-    category=pojo.getCategory_name();
+ArrayList<CategoriesPojo> list;
 
+%>
+<% 
+    try{
+        
+        pojo = (DrRegisterPojo)request.getAttribute("doctor_display_info");
+        list  = (ArrayList<CategoriesPojo>)request.getAttribute("categories_list");
+            
+        fullname=pojo.getFullname();
+         gender=pojo.getGender();
+        category=pojo.getCategory_name();
+        email=pojo.getDoctor_email();
+        doctor_number=pojo.getDoctor_contact_number();
+        qualification=pojo.getQualification();
+        clinic_name=pojo.getClinicname();
+        clinic_address= pojo.getClinicaddress();
+        clinic_contact=pojo.getClinic_contact();
+        clinic_landline=pojo.getClinic_landline();
+    
+        
+        
+        
+          
+        if(session.getAttribute("username") != null){
+            
+        }
+        
+        
+        
+        
+    }catch(Exception e){
+        
+        response.sendRedirect("LoginDr.jsp");
+    }
+    
+    
+   
+ 
 %>
 <body class="fixed-sn elegant-white-skin">
     
@@ -107,7 +143,7 @@ DrRegisterPojo pojo;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-                                                                        <input type="text" name="fullname" readonly="" required="" value="<%=pojo.getFullname()%>" class="form-control">
+                                                                        <input type="text" name="fullname" readonly="" required="" value="<%=fullname%>" class="form-control">
 									<label for="fullname">Full name</label>
 								</div>
 							</div>
@@ -118,14 +154,14 @@ DrRegisterPojo pojo;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i>
-                                                                        <input type="email" readonly="" id="doctor_email" onfocusout="setUserName()" value="<%= pojo.getDoctor_email() %>"  name="doctor_email" required="" class="form-control">
+                                                                        <input type="email" readonly="" id="doctor_email" onfocusout="setUserName()" value="<%=email%>"  name="doctor_email" required="" class="form-control">
 									<label for="doctor_email">Email ID</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" name="doctor_contact_number" value="<%= pojo.getDoctor_contact_number() %>" minlength="10" maxlength="10" required="" class="form-control">
+                                                                        <input type="text" name="doctor_contact_number" value="<%=doctor_number%>" minlength="10" maxlength="10" required="" class="form-control">
 									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
@@ -134,7 +170,7 @@ DrRegisterPojo pojo;
 							<div class="col-md-4">
 								<div class="md-form">
 									<i class="fa fa-university prefix"></i>
-                                                                        <input type="text" name="qualification" value="<%= pojo.getQualification() %>" required="" class="form-control">
+                                                                        <input type="text" name="qualification" value="<%=qualification%>" required="" class="form-control">
 									<label for="Qualification">Qualification</label>
 								</div>
 							</div>
@@ -145,9 +181,12 @@ DrRegisterPojo pojo;
 								<!--<i class="fa fa-user prefix"></i>-->
                                                                 <select name="gender" required="" class="form-control"> 
 								 <option disabled="disabled" selected="selected" >----Select Gender----</option>
+                                                                 
+                                                                 
                                                                  <option value="Male" <% if(gender.equals("Male"))%>  selected <%  %> >Male</option>
 								 <option value="Female" <% if(gender.equals("Female"))%>  selected <%  %>>Female</option>
 								 </select>
+                                                                 
 							</div>
                                                                  
                                                                  
@@ -156,16 +195,24 @@ DrRegisterPojo pojo;
                                                                 
                                                                 <select class="form-control" name="category" required="" > 
 								 <option disabled="disabled" selected="selected" >----Select Category----</option>
-								 <option value="1" <% if(category.equals("Dermatologist"))%>  selected <%  %> >Dermatologist</option>
-								<option value="2" <% if(category.equals("Cardiologist"))%>  selected <%  %> >Cardiologist</option>
-								<option value="3" <% if(category.equals("E-N-T Specialist"))%>  selected <%  %>>E-N-T Specialist</option>
-                                                                <option value="4" <% if(category.equals("Dentist"))%>selected <% %> >Dentist</option>
-								<option value="5"<% if(category.equals("Ayurveda"))%>  selected <%  %>>Ayurveda</option>
-								<option value="6"<% if(category.equals("Homeopath"))%>  selected <%  %>>Homeopath</option>
-								<option value="7"<% if(category.equals("Psychologist"))%>  selected <%  %>>Psychologist</option>
-								<option value="8"<% if(category.equals("Dietition"))%>  selected <%  %>>Dietition</option>
-								<option value="9"<% if(category.equals("Neurologist"))%>  selected <%  %>>Neurologist</option>
-								<option value="10"<% if(category.equals("Orthodentist"))%>  selected <%  %>>Orthodentist</option>
+								
+                                                                   <%
+                                                                 
+                                                                 for(CategoriesPojo jojo: list){
+								
+                                                                
+                                                                %>
+                                                                
+                                                                <option value=<%= jojo.getCategorie_id()%> <% if(jojo.getCategorie_name().equals(category))%> selected <%  %> ><%=jojo.getCategorie_name()%></option>
+                                                                
+                                                                
+                                                                <% 
+                                                                
+                                                                    }
+                                                                    
+                                                                %>
+                                                                
+                                                                
 								 </select>
 							</div>
 						</div>
@@ -177,7 +224,7 @@ DrRegisterPojo pojo;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>	
-                                                                        <input type="text" id="form6" name="clinicname" value="<%= pojo.getClinicname()%>" required="" class="form-control">
+                                                                        <input type="text" id="form6" name="clinicname" value="<%=clinic_name%>" required="" class="form-control">
 									<label for="form6">Clinic Name</label>
 								</div>
 							</div>
@@ -187,7 +234,7 @@ DrRegisterPojo pojo;
 
                                                                      
 						
-                                                                        <input type="text" id="form7" name="clinicaddress" value="<%= pojo.getClinicaddress() %>" required=""  class="form-control">
+                                                                        <input type="text" id="form7" name="clinicaddress" value="<%=clinic_address%>" required=""  class="form-control">
 									<label for="form7">Clinic Address</label>
 
                                                                         <input type="hidden" id="cordinates" name="cordinate"> 
@@ -205,14 +252,14 @@ DrRegisterPojo pojo;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" value="<%= pojo.getClinic_contact()%>" required="" class="form-control">
+                                                                        <input type="text" id="form8" name="clinic_contact" value="<%=clinic_contact%>" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form9" name="clinic_landline" value="<%=pojo.getClinic_landline() %>" class="form-control">
+                                                                        <input type="text" id="form9" name="clinic_landline" value="<%=clinic_landline %>" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
