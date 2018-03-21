@@ -137,8 +137,6 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
                 cat_pojo.setCategorie_id(rs_all_cat.getInt(1));
                 cat_pojo.setCategorie_name(rs_all_cat.getString(2));
                 
-                System.out.println("//////////////"+rs_all_cat.getInt(1));
-                System.out.println("//////////////"+rs_all_cat.getString(2));
                 
                 cat_list.add(cat_pojo);
                 
@@ -159,14 +157,15 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
     public  String update(){
         try{
         
-        String sql = "update Doctors set clinic_name =?,category_id =?,clinic_phone_no=?,clinic_landline_no=?,personal_phone_no=? where doctor_uname = ? ";
+        String sql = "update Doctors set clinic_name =?,category_id =?,clinic_phone_no=?,clinic_landline_no=?,personal_phone_no=?,gender=? where doctor_uname = ? ";
         PreparedStatement ps = DataBaseHandler.getConnection().prepareStatement(sql);
         ps.setString(1,pojo.getClinicname());
         ps.setInt(2,Integer.parseInt(pojo.getCategory()));
         ps.setString(3,pojo.getClinic_contact());
         ps.setString(4,pojo.getClinic_landline());
         ps.setString(5,pojo.getDoctor_contact_number());
-        ps.setString(6,pojo.getDoctor_email());
+        ps.setString(6,pojo.getGender());
+        ps.setString(7,pojo.getDoctor_email());
        
         if(DataBaseHandler.updateDoctor(ps)){
            return  SUCCESS; 
@@ -177,8 +176,7 @@ public class ViewDoctors extends ActionSupport implements ModelDriven<DrRegister
         }
         addActionMessage("Mobile Number Already Registerd");
         return ERROR;
-    }
-    
+}
     
     @Override
     public DrRegisterPojo getModel() {

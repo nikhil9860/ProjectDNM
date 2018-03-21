@@ -7,10 +7,12 @@ package com.java.doctor.classfiles;
 
 import com.java.DataBase.DoctorDataBaseHandler;
 import com.java.POJO.DoctorLoginPojo;
+import com.java.POJO.FeedBackPojo;
 import com.java.POJO.PatientAppointmentPojo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -22,20 +24,19 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author nikhil
  */
-public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<DoctorLoginPojo>,ServletRequestAware,SessionAware{
+public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<PatientAppointmentPojo>,ServletRequestAware,SessionAware{
     
-    DoctorLoginPojo pojo = new DoctorLoginPojo();
+    PatientAppointmentPojo appointment_pojo = new PatientAppointmentPojo();
     ArrayList<PatientAppointmentPojo> list = new ArrayList<PatientAppointmentPojo>();
     HttpServletRequest req;
     Map<String, Object> session;
     String date= java.time.LocalDate.now().toString();
     
     
-    
-    @Override
-    public DoctorLoginPojo getModel() {
-        return pojo;
-                
+      
+     @Override
+    public PatientAppointmentPojo getModel() {
+        return  appointment_pojo;
     }
     
     @Override
@@ -71,19 +72,21 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<D
            String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status  FROM Appointments "
                    + "inner JOIN Patient ON Appointments.patient_id=Patient.patient_id "
                    + "inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id"
-                   + " WHERE Appointments.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'";
+                   + " WHERE Appointments.appointment_date='"+date+"' And Appointments.status='live'  AND Doctors.doctor_uname='"+doctor_uname+"'";
            
+
+
+
            ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
            
            while(patient_details.next()){
-               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4));
-               
-               System.out.println("/////"+pojo.getPatient_age());
-               
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5));
+                
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
                
            }
+           
            
            
        }catch(Exception e){
@@ -91,10 +94,40 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<D
        }
        
        
+       
+       
        return SUCCESS;
    }
 
-    
+   
+   //showing appointmens using datepicker
+   public  String showAppointment () throws SQLException{
+       
+       String doctor_uname=session.get("uname").toString();
+       
+       
+        String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status  FROM Appointments "
+                   + "inner JOIN Patient ON Appointments.patient_id=Patient.patient_id "
+                   + "inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id"
+                   + " WHERE Appointments.appointment_date='"+appointment_pojo.getAppointment_date()+"' And Appointments.status='live' AND Doctors.doctor_uname='"+doctor_uname+"'";
+           
+        
+
+
+           ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
+           
+           while(patient_details.next()){
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5));
+                
+               list.add(pojo);
+               req.setAttribute("patient_appointment_list",list);
+               
+           }
+           
+       
+       //System.out.println("/////////////"+appointment_details);
+       return SUCCESS;
+   }
     
 
     

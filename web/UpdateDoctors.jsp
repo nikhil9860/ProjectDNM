@@ -198,15 +198,16 @@ ArrayList<CategoriesPojo> list;
 								
                                                                    <%
                                                                  
-                                                                 for(CategoriesPojo jojo: list){
+                                                                 for(CategoriesPojo cat_pojo: list){
 								
                                                                 
                                                                 %>
                                                                 
-                                                                <option value=<%= jojo.getCategorie_id()%> <% if(jojo.getCategorie_name().equals(category))%> selected <%  %> ><%=jojo.getCategorie_name()%></option>
+                                                                <option value=<%=cat_pojo.getCategorie_id()%> <% if(cat_pojo.getCategorie_name().equals(category))%> selected <%  %> ><%=cat_pojo.getCategorie_name()%></option>
                                                                 
                                                                 
-                                                                <% 
+                                                                <%  
+                                                                    
                                                                 
                                                                     }
                                                                     

@@ -106,6 +106,20 @@
            </action>
          
         
+           <action name="cancelAppointment" class="com.java.doctor.classfiles.CancelAppointment" >
+             
+               <result name="success" type="chain">DoctorDashBoard</result>     
+               
+           </action>
+        
+        
+           <action name="show_doctor_appointments" class="com.java.doctor.classfiles.FetchDoctorDashBoard" method="showAppointment">
+               <result name="success">DoctorDashBoard.jsp</result> 
+           </action>
+        
+           
+        
+        
     </package>
     
     

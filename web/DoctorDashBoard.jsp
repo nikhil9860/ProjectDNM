@@ -4,8 +4,14 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
-    <%! String total_appoitments; %>
-    <% total_appoitments= request.getAttribute("total_appointments").toString(); %>
+    
+    
+    <%
+    
+     //response.setIntHeader("Refresh", 30);
+    
+    %>
+    
 <head>
 
 	<meta charset="utf-8">
@@ -27,6 +33,8 @@
 <body class="fixed-sn elegant-white-skin">
      <%@include file="headerDr.jsp" %>
      
+        
+     <form action="show_doctor_appointments">
 	<main class="">
             
 	<div class="container-fluid">
@@ -38,90 +46,52 @@
 					<div class="col-md-3">
                                             <div class="card-block pt-0">
                                                 
-                                                <input type="text" id="to" class="form-control datepicker" value="Select Date">
+                                                
+                                                    <input type="date" name="appointment_date" class="form-control" >
                                       
                                              </div></div>
                                              
 					<div class="col-md-3">
                                             <div class="card-block pt-0">
-                                                 <button type="button" class="btn btn-primary">Show Appointments</button>
+                                                
+                                                 <button type="submit" class="btn btn-primary">Show Appointments</button>
                                             </div></div>         
                     			
                                              </div>
                     </section>
-                        <section class="section section-intro">
-
-				<!--First row-->
-				<div class="row">
-					<!--First column-->
-					<div class="col-md-4">
-						<!--Card Primary-->
-						<div class="card classic-admin-card deep purple">
-							<div class="card-block">
-								<div class="pull-xs-right">
-									<i class="fa fa-users"></i>
-								</div>
-								<p>Total no Of Appointments </p>
-                                                                <h4> <%=total_appoitments%> </h4>
-							</div>
-							<progress class="progress progress-success" value="25" max="100">25%</progress>
-							<div class="card-block">
-								<p>Better than last week (25%)</p>
-							</div>
-						</div>
-						<!--/.Card Primary-->
-					</div>
-					<!--/First column-->
-					<!--Second column-->
-					<div class="col-md-4">
-						<!--Card Primary-->
-						<div class="card classic-admin-card deep purple">
-							<div class="card-block">
-								<div class="pull-xs-right">
-									<i class="fa fa-users"></i>
-								</div>
-								<p>App Appointments</p>
-								<h4>200</h4>
-							</div>
-							<progress class="progress progress-danger" value="25" max="100">25%</progress>
-							<div class="card-block">
-								<p>Worse than last week (25%)</p>   
-							</div>
-						</div>
-						<!--/.Card Primary-->
-					</div>
-					<!--/Second column-->
-					<!--Third column-->
-					<div class="col-md-4">
-						<!--Card Primary-->
-						<div class="card classic-admin-card deep purple">
-							<div class="card-block">
-								<div class="pull-xs-right">
-									<i class="fa fa-file"></i>
-								</div>
-								<p>Walk in appointments</p>
-								<h4>20000</h4>
-							</div>
-							<progress class="progress progress-success" value="75" max="100">25%</progress>
-							<div class="card-block">
-								<p>Better than last week (75%)</p>
-							</div>
-						</div>
-						<!--/.Card Primary-->
-					</div>
-					<!--/Third column-->
-					<!--Fourth column-->
-					<!--/Fourth column-->
-
-				</div>
-				<!--/First row-->
-
-			</section>
-		
-	
+                                                                                                         
+    
+</div>
+                      
+                                                        <div class="form-header">
+							<h3><i></i> Appointment list  </h3>
+                                                        </div>
+                                                        
+                
+        <display:table id="row" name="patient_appointment_list" pagesize="10" requestURI="DoctorDashBoard" class="table table-hover">
+            
+            <display:column property="patient_name" sortable="true" title="Patient Name"></display:column>
+            <display:column property="patient_gender" sortable="true" title="Gender"></display:column>
+            <display:column property="patient_age"  title="age"></display:column>
+            <display:column property="patient_location"  title="location"></display:column>
+            <display:column property="status"  title="status"></display:column>
+            <display:column></display:column> 
+            <display:column title="action"><a href="cancelAppointment?patient_name=${row.patient_name}">Cancel</a></display:column>
+            <display:column title="action"><a href="doneAppointment?patient_name=${row.patient_name} & patient_status= ${row.patient_age}">Done</a></display:column>
+                                 
+        </display:table>
+               
+           
+                                                       
+                                                        
+	<!--/Main layout-->
+                </div>
     
                    </div>
             </div>
+              
+                                                        
+                                                        
         </div>
 	</main>
 	<!--/Main layout-->
@@ -186,6 +156,7 @@
 		});
 
 	</script>
+     </form>
 </body>
 
 </html>

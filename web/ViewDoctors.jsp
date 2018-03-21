@@ -41,7 +41,8 @@
 
         <div class="form-header">
 							<h3><i></i> Doctor List  </h3>
-						</div><a href="RegisterDoctorpage">Add Doctor</a>
+        </div>
+						<div><a href="RegisterDoctorpage">Add Doctor</a>
         <display:table id="row" name="doctorlist" pagesize="7" requestURI="ViewDoctors" class="table table-hover">
             
             <display:column property="fullname" sortable="true" title="FulName"></display:column>
@@ -54,7 +55,7 @@
             <display:column title="action"><a href="ViewFeedback?username=${row.username}">Feedback</a></display:column>
                                  
         </display:table>
-                </main>
+               
 	<!--/Main layout-->
                 </div>
     
@@ -62,22 +63,21 @@
                     
                 </div>  
     
-
-	 SCRIPTS 
-	 JQuery 
+        </main>
+	 
 	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/jquery-2.2.3.min.js"></script>
 	<script src="js/Dashboard/admin-jquery-2.2.3.min.js"></script>
 	<script>
 		$("#navigation").load("components/navigation.html");
 	</script>
 
-	 Bootstrap tooltips 
+	 
 	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/tether.min.js"></script>
 	<script src="../version 1.1 CTS/js/Dashboard/admin-tether.min.js"></script>
-	 Bootstrap core JavaScript 
+	 
 	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/bootstrap.min.js"></script>
 	<script src="../version 1.1 CTS/js/Dashboard/admin-bootstrap.min.js"></script>
-	 MDB core JavaScript 
+	 
 	<script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/templates/Admin/js/mdb.min.js"></script>
 	<script src="js/Dashboard/admin-mdb.min.js"></script>
 <script>
