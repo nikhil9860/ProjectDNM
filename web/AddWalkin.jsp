@@ -38,14 +38,14 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-user prefix"></i>
-									<input type="text" name="pname" class="form-control">
+									<input type="text" required ="" name="patient_name" class="form-control">
 									<label for="pname">Patient name</label>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="md-form">
+								<div class="md-form"> 
 									<i class="fa fa-phone prefix"></i>
-									<input type="text" name="pcontactno" class="form-control">
+									<input type="text" required ="" minlength="10" maxlength="10" name="patient_contact_no" class="form-control">
 									<label for="pcontactno">Contact No.</label>
 								</div>
 							</div>
@@ -54,7 +54,7 @@
 							   <div class="col-md-6">
 								<!--File Input-->
 								<!--<i class="fa fa-user prefix"></i>-->
-                                                                <select class="form-control" name="gender"> 
+                                                                <select class="form-control" required ="" name="gender"> 
 								 <option disabled="disabled" selected="selected" >Select Gender</option>
 								 <option value="male">Male</option>
 								 <option value="female">Female</option>
@@ -63,7 +63,7 @@
 					<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-birthday-cake prefix"></i>
-									<input type="date" name="DOB" class="form-control">
+									<input type="date" required ="" name="DOB" class="form-control">
 									
 								</div>
 							</div>
@@ -73,7 +73,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-home prefix"></i>
-									<input type="text" name="patientaddress" class="form-control">
+									<input type="text" required ="" name="patient_address" class="form-control">
 									<label for="padd">Patient Address</label>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
                                                     </div>
                                                     <div class="col-md-4">
 							
-							<input type="time" class="clockpicker-am-pm-block" name="app_time">
+							<input type="time" required ="" class="clockpicker-am-pm-block" name="appointment_time">
 						
 							</div>
                                                     <div class="col-md-2">
@@ -97,7 +97,7 @@
                                                     </div>
                                                     <div class="col-md-4">
 	                                                                                
-                                                <input type="date" name="app_date" class="form-control">
+                                                <input type="date" required ="" name="appointment_date" class="form-control">
                                       
                                         </div>
                                       	
@@ -106,7 +106,7 @@
 						
 						
                                     <div class="modal-footer text-xs-center">
-                                            <input type="submit" class="btn btn-primary"/>
+                                            <input type="submit" value="Done" class="btn btn-primary"/>
 					</div>
 
 				</div>

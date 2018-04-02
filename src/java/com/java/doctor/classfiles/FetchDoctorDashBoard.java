@@ -69,7 +69,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
            }
        
        
-           String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status  FROM Appointments "
+           String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status,Appointments.appointment_date  FROM Appointments "
                    + "inner JOIN Patient ON Appointments.patient_id=Patient.patient_id "
                    + "inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id"
                    + " WHERE Appointments.appointment_date='"+date+"' And Appointments.status='live'  AND Doctors.doctor_uname='"+doctor_uname+"'";
@@ -80,7 +80,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
            ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
            
            while(patient_details.next()){
-               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5));
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6));
                 
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
@@ -106,18 +106,19 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
        String doctor_uname=session.get("uname").toString();
        
        
-        String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status  FROM Appointments "
+       
+       
+        String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status,Appointments.appointment_date  FROM Appointments "
                    + "inner JOIN Patient ON Appointments.patient_id=Patient.patient_id "
                    + "inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id"
                    + " WHERE Appointments.appointment_date='"+appointment_pojo.getAppointment_date()+"' And Appointments.status='live' AND Doctors.doctor_uname='"+doctor_uname+"'";
            
         
 
-
            ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
            
            while(patient_details.next()){
-               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5));
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6));
                 
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
@@ -125,7 +126,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
            }
            
        
-       //System.out.println("/////////////"+appointment_details);
+       
        return SUCCESS;
    }
     

@@ -20,14 +20,16 @@ public class PatientAppointmentPojo {
     public PatientAppointmentPojo() {
     }
 
-    public PatientAppointmentPojo(String patient_name, String patient_gender, String patient_age, String patient_location, String status) {
+    public PatientAppointmentPojo(String patient_name, String patient_gender, String patient_age, String patient_location, String status, String appointment_date) {
         this.patient_name = patient_name;
         this.patient_gender = patient_gender;
         this.patient_age = patient_age;
         this.patient_location = patient_location;
         this.status = status;
+        this.appointment_date = appointment_date;
     }
 
+    
     
     /**
      * @return the patient_name

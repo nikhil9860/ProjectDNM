@@ -55,7 +55,15 @@
                                             <div class="card-block pt-0">
                                                 
                                                  <button type="submit" class="btn btn-primary">Show Appointments</button>
-                                            </div></div>         
+                                                 
+                                            </div></div> 
+                                                 
+                                                 <div class="col-md-3">
+                                            <div class="card-block pt-0">
+                                                
+                                                 
+                                                 <a href="AddWalkin.jsp" class="btn btn-primary" >Add Walkin</a>
+                                            </div></div> 
                     			
                                              </div>
                     </section>
@@ -75,15 +83,15 @@
             <display:column property="patient_age"  title="age"></display:column>
             <display:column property="patient_location"  title="location"></display:column>
             <display:column property="status"  title="status"></display:column>
+            <display:column property="appointment_date"  title="date"></display:column>
             <display:column></display:column> 
-            <display:column title="action"><a href="cancelAppointment?patient_name=${row.patient_name}">Cancel</a></display:column>
-            <display:column title="action"><a href="doneAppointment?patient_name=${row.patient_name} & patient_status= ${row.patient_age}">Done</a></display:column>
+            <display:column title="action"><a href="cancelAppointment?patient_name=${row.patient_name}&appointment_date=${row.appointment_date}">Cancel</a></display:column>
+            <display:column title="action"><a href="doneAppointment?patient_name=${row.patient_name}&appointment_date=${row.appointment_date}" >Done</a></display:column>
                                  
         </display:table>
                
-           
-                                                       
-                                                        
+                                                                  
+                                                
 	<!--/Main layout-->
                 </div>
     

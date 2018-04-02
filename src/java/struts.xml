@@ -112,12 +112,19 @@
                
            </action>
         
+           <action name="doneAppointment" class="com.java.doctor.classfiles.DoneAppointment">
+               <result name="success" type="chain">DoctorDashBoard</result>
+           </action>
+        
+        
         
            <action name="show_doctor_appointments" class="com.java.doctor.classfiles.FetchDoctorDashBoard" method="showAppointment">
                <result name="success">DoctorDashBoard.jsp</result> 
            </action>
         
-           
+           <action name="AddWalkin" class="com.java.doctor.classfiles.AddWalkin">
+               <result name="success" type="chain">DoctorDashBoard</result>
+           </action>
         
         
     </package>

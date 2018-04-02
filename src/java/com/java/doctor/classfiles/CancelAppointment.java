@@ -26,7 +26,7 @@ public class CancelAppointment extends ActionSupport implements ServletRequestAw
     
     HttpServletRequest req;
     String paitent_name;
-    String date= java.time.LocalDate.now().toString();
+    String date;
     String doctor_uname;
     
     @Override
@@ -43,12 +43,13 @@ public class CancelAppointment extends ActionSupport implements ServletRequestAw
     public  String execute(){
         paitent_name = req.getParameter("patient_name");
         doctor_uname=session.get("uname").toString();
+        date= req.getParameter("appointment_date");
         
         String cancel_appointment = "UPDATE Appointments inner JOIN Patient ON Appointments.patient_id=Patient.patient_id inner JOIN Doctors ON Appointments.doctor_id = Doctors.doctor_id SET Appointments.status = 'cancel' WHERE Patient.patient_name='"+paitent_name+"' AND Appointments.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'";
     
         try {
             
-            System.out.println("////////////////"+cancel_appointment);
+            
             
             DoctorDataBaseHandler.getConnection().createStatement().executeUpdate(cancel_appointment);
             
@@ -56,8 +57,7 @@ public class CancelAppointment extends ActionSupport implements ServletRequestAw
             Logger.getLogger(CancelAppointment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
-        
+           
         return SUCCESS;
     }
 

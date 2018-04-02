@@ -106,7 +106,7 @@
 						</div>
 
 						<div class="text-xs-center">
-                                                    <%--  <s:if test="hasActionErrors()">
+                                                     <s:if test="hasActionErrors()">
                             
                                 <div class="text-xs-center" style="color: red">
                             <s:actionerror />
@@ -119,7 +119,7 @@
                                         <s:actionmessage/>
                                 </s:if>
 
-                                                    --%>
+                                                    
 
 				</div>
                                                     <div class="text-xs-center">
