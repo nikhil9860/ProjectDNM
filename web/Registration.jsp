@@ -163,7 +163,7 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" name="doctor_contact_number" minlength="10" maxlength="10" required="" class="form-control">
+                                                                        <input type="text" name="doctor_contact_number" pattern="[789][0-9]{9}" minlength="10" maxlength="10" required="" class="form-control">
 									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
@@ -221,9 +221,19 @@
                                                                  
 								 </select>
                                                                 
-                                                                
+                                                                 
 							</div>
+                                                            
+                                                 <div class="col-md-4">
+								<div class="md-form">
+									<i class="fa fa-code-fork prefix "></i>
+                                                                        <input type="number" pattern="[0-9]" name="exprience" required="" class="form-control">
+									<label for="exprience">Exprience</label>
+								</div>
+							</div>
+                                                                 
 						</div>
+                                                                 
 						
 				<div class="text-xs-center"><hr>
 					<font color="#000000" size="+3" face="Verdana, Arial, Helvetica, sans-serif"><b>Clinic Information</b></font>
@@ -260,14 +270,14 @@
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" minlength="11" maxlength="11" required="" class="form-control">
+                                                                        <input type="text" id="form8"  pattern="[0][0-9]{10}" name="clinic_contact" minlength="11" maxlength="11" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form9" name="clinic_landline" minlength="11" maxlength="11" class="form-control">
+                                                                        <input type="text" id="form9"  pattern="[0][0-9]{10}" name="clinic_landline" minlength="11" maxlength="11" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>

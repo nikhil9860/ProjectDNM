@@ -161,7 +161,7 @@ ArrayList<CategoriesPojo> list;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" name="doctor_contact_number" value="<%=doctor_number%>" minlength="10" maxlength="10" required="" class="form-control">
+                                                                        <input type="text" name="doctor_contact_number" pattern="[789][0-9]{9}" value="<%=doctor_number%>" minlength="10" maxlength="10" required="" class="form-control">
 									<label for="contactnumber">Contact No.</label>
 								</div>
 							</div>
@@ -253,14 +253,14 @@ ArrayList<CategoriesPojo> list;
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form8" name="clinic_contact" value="<%=clinic_contact%>" required="" class="form-control">
+                                                                        <input type="text" id="form8" pattern="[0][0-9]{10}"  name="clinic_contact" value="<%=clinic_contact%>" required="" class="form-control">
 									<label for="form8">Clinic Contact No.</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="md-form">
 									<i class="fa fa-phone prefix"></i>
-                                                                        <input type="text" id="form9" name="clinic_landline" value="<%=clinic_landline %>" class="form-control">
+                                                                        <input type="text" id="form9" pattern="[0][0-9]{10}"  name="clinic_landline" value="<%=clinic_landline %>" class="form-control">
 									<label for="form9">Clinic Landline No.</label>
 								</div>
 							</div>
