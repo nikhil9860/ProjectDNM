@@ -44,7 +44,7 @@ public class AddWalkin extends ActionSupport implements ModelDriven<WalkinPojo>,
         Calendar year = Calendar.getInstance();
        String dob = pojo.getDOB();
        
-       String age[] = new String[10];
+       String age[] = new String[5];
         
         for(String split : dob.split("-")){
             age[0]=split;
@@ -56,7 +56,7 @@ public class AddWalkin extends ActionSupport implements ModelDriven<WalkinPojo>,
         
         paitent_age=current_year-paitent_age;
         
-        
+        /* forfetching doctor id using email id */
         String doctor_id = "";
         
         String sql = "select Doctors.doctor_id from Doctors where doctor_email_id ='"+doctor_email+"'";

@@ -45,9 +45,10 @@ public class CancelAppointment extends ActionSupport implements ServletRequestAw
         doctor_uname=session.get("uname").toString();
         date= req.getParameter("appointment_date");
         
-        String cancel_appointment = "UPDATE Appointments inner JOIN Patient ON Appointments.patient_id=Patient.patient_id inner JOIN Doctors ON Appointments.doctor_id = Doctors.doctor_id SET Appointments.status = 'cancel' WHERE Patient.patient_name='"+paitent_name+"' AND Appointments.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'";
+        String cancel_appointment = "UPDATE Patient inner JOIN Doctors ON Patient.doctor_id = Doctors.doctor_id SET Patient.status = 'cancel', Patient.cancelled_by ='doctor'  WHERE Patient.patient_name='"+paitent_name+"' AND Patient.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'";
     
         try {
+            
             
             
             

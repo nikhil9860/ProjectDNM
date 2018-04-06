@@ -69,10 +69,9 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
            }
        
        
-           String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Appointments.status,Appointments.appointment_date  FROM Appointments "
-                   + "inner JOIN Patient ON Appointments.patient_id=Patient.patient_id "
-                   + "inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id"
-                   + " WHERE Appointments.appointment_date='"+date+"' And Appointments.status='live'  AND Doctors.doctor_uname='"+doctor_uname+"'";
+           String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Patient.status,Patient.appointment_date  FROM Patient "
+                   + "inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id"
+                   + " WHERE Patient.appointment_date='"+date+"' And Patient.status='live'  AND Doctors.doctor_uname='"+doctor_uname+"'";
            
 
 
