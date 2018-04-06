@@ -8,7 +8,16 @@
     
     <%
     
-     //response.setIntHeader("Refresh", 30);
+          try{
+    if(session.getAttribute("username").toString()==null){
+        response.sendRedirect("LoginDr.jsp");
+    }
+   
+        }
+        catch(Exception e){
+         response.sendRedirect("LoginDr.jsp");
+
+        }
     
     %>
     

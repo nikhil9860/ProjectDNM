@@ -83,6 +83,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
                 
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
+               session.put("username",doctor_uname);
                
            }
            
