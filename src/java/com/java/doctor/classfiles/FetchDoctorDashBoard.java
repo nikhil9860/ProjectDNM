@@ -31,7 +31,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
     HttpServletRequest req;
     Map<String, Object> session;
     String date= java.time.LocalDate.now().toString();
-    
+    String total_appointment_count;
     
       
      @Override
@@ -57,38 +57,41 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
         
        try{
            
-           
-           
-           String appointment_sql = "SELECT COUNT(*) FROM Appointments inner JOIN Doctors ON Appointments.doctor_id=Doctors.doctor_id WHERE Appointments.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'";
-           
-           ResultSet appointment_rs = DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_sql);
-           
-           if(appointment_rs.next()){
-               
-               req.setAttribute("total_appointments",appointment_rs.getString(1));
-           }
-       
-       
+          
            String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Patient.status,Patient.appointment_date  FROM Patient "
                    + "inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id"
                    + " WHERE Patient.appointment_date='"+date+"' And Patient.status='live'  AND Doctors.doctor_uname='"+doctor_uname+"'";
+            
            
-
-
-
+           
            ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
            
+           int count = 0;
+           
            while(patient_details.next()){
-               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6));
-                
+               ++count; 
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6),count);
+               
+               
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
                session.put("username",doctor_uname);
                
            }
            
+           String total_appointments = "SELECT COUNT(*) FROM Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id WHERE Patient.appointment_date='"+date+"' AND Doctors.doctor_uname='"+doctor_uname+"'AND Patient.status= 'live'";  
            
+           ResultSet total_appointments_resultset = DoctorDataBaseHandler.getConnection().createStatement().executeQuery(total_appointments);
+          
+            if(total_appointments_resultset.next()){
+                total_appointment_count= total_appointments_resultset.getString(1);
+            }
            
+               
+                req.setAttribute("total_appointment",total_appointment_count); 
+           
+          
+            
        }catch(Exception e){
            e.printStackTrace();
        }
@@ -105,22 +108,41 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
        
        String doctor_uname=session.get("uname").toString();
        
+         int count = 0;
        
        
-       
+        
+         
         String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Patient.status,Patient.appointment_date FROM Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id WHERE Patient.appointment_date='"+appointment_pojo.getAppointment_date()+"' And Patient.status='live' AND Doctors.doctor_uname='"+doctor_uname+"'";
            
-        
-
            ResultSet patient_details= DoctorDataBaseHandler.getConnection().createStatement().executeQuery(appointment_details);
            
            while(patient_details.next()){
-               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6));
+               ++count; 
+               PatientAppointmentPojo pojo = new PatientAppointmentPojo(patient_details.getString(1),patient_details.getString(2),patient_details.getString(3),patient_details.getString(4),patient_details.getString(5),patient_details.getString(6),count);
                 
                list.add(pojo);
                req.setAttribute("patient_appointment_list",list);
                
            }
+           
+           
+           String total_appointments = "SELECT COUNT(*) FROM Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id WHERE Patient.appointment_date='"+appointment_pojo.getAppointment_date()+"' AND Doctors.doctor_uname='"+doctor_uname+"'AND Patient.status= 'live'";  
+           
+         
+         
+           ResultSet total_appointments_resultset = DoctorDataBaseHandler.getConnection().createStatement().executeQuery(total_appointments);
+          
+            if(total_appointments_resultset.next()){
+                total_appointment_count= total_appointments_resultset.getString(1);
+            }
+           
+            System.out.println("/////////"+total_appointments);
+         System.out.println("////////"+total_appointment_count);      
+             req.setAttribute("total_appointment",total_appointment_count);
+           
+           
+           
            
        
        

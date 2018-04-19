@@ -4,7 +4,9 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
+    <%!String total_appointment_count;%>  
     
+   
     
     <%
     
@@ -13,6 +15,8 @@
         response.sendRedirect("LoginDr.jsp");
     }
    
+    total_appointment_count=request.getAttribute("total_appointment").toString(); 
+    
         }
         catch(Exception e){
          response.sendRedirect("LoginDr.jsp");
@@ -84,9 +88,11 @@
 							<h3><i></i> Appointment list  </h3>
                                                         </div>
                                                         
-                
+                <h2 style="font-family:verdana;"> Total Appointment : <%=total_appointment_count%> </h2>
+                                    <br>
         <display:table id="row" name="patient_appointment_list" pagesize="10" requestURI="DoctorDashBoard" class="table table-hover">
-            
+           
+            <display:column property="appointment_number" sortable="true" title="Patient No"></display:column>
             <display:column property="patient_name" sortable="true" title="Patient Name"></display:column>
             <display:column property="patient_gender" sortable="true" title="Gender"></display:column>
             <display:column property="patient_age"  title="age"></display:column>

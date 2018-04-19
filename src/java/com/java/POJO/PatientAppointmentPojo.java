@@ -10,25 +10,35 @@ package com.java.POJO;
  * @author nikhil
  */
 public class PatientAppointmentPojo {
+
+    /**
+     * @return the appointment_number
+     */
+    public int getAppointment_number() {
+        return appointment_number;
+    }
     private String patient_name;
     private String patient_gender;
     private String patient_age;
     private String patient_location;
     private String status;
     private String appointment_date;
+    private  int appointment_number;
  
     public PatientAppointmentPojo() {
     }
 
-    public PatientAppointmentPojo(String patient_name, String patient_gender, String patient_age, String patient_location, String status, String appointment_date) {
+    public PatientAppointmentPojo(String patient_name, String patient_gender, String patient_age, String patient_location, String status, String appointment_date, int appointment_number) {
         this.patient_name = patient_name;
         this.patient_gender = patient_gender;
         this.patient_age = patient_age;
         this.patient_location = patient_location;
         this.status = status;
         this.appointment_date = appointment_date;
+        this.appointment_number = appointment_number;
     }
 
+   
     
     
     /**
