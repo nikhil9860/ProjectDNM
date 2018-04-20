@@ -95,7 +95,40 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
                
                 req.setAttribute("total_appointment",total_appointment_count); 
            
-          
+           
+     Timer timer = new Timer();
+		TimerTask tt = new TimerTask(){
+                    
+			public void run(){
+                                
+                                
+                            
+				Calendar cal = Calendar.getInstance(); //this is the method you should use, not the Date(), because it is desperated.
+ 
+				int hour = cal.get(Calendar.HOUR_OF_DAY);//get the hour number of the day, from 0 to 23
+                                
+				if(hour == 0){
+                                    
+                                    System.out.println("//// checking");
+                                    try {
+                                        String cancel_appointment = "UPDATE Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id SET status = 'cancel' WHERE Doctors.doctor_uname='"+doctor_uname+"' AND appointment_date <'"+date+"'";
+                                        System.out.println("//////////"+cancel_appointment);
+                                        DoctorDataBaseHandler.getConnection().createStatement().executeUpdate(cancel_appointment);
+                                       
+                                        System.out.println("auto canceled");
+                                        
+                                        
+                                    } catch (SQLException ex) {
+                                        Logger.getLogger(FetchDoctorDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                        
+				}
+                                
+			}
+		};
+		timer.schedule(tt, 1000, 10000*60);//	delay the task 1 second, and then run task every five seconds
+        
+                
             
        }catch(Exception e){
            e.printStackTrace();
@@ -144,40 +177,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
              req.setAttribute("total_appointment",total_appointment_count);
            
            
-           
-     Timer timer = new Timer();
-		TimerTask tt = new TimerTask(){
-                    
-			public void run(){
-                                
-                                
-                            
-				Calendar cal = Calendar.getInstance(); //this is the method you should use, not the Date(), because it is desperated.
- 
-				int hour = cal.get(Calendar.HOUR_OF_DAY);//get the hour number of the day, from 0 to 23
-                                
-				if(hour == 16){
-                                    
-                                    System.out.println("//// checking");
-                                    try {
-                                        String cancel_appointment = "UPDATE Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id SET status = 'cancel' WHERE Doctors.doctor_uname='"+doctor_uname+"' AND appointment_date <'"+date+"'";
-                                        System.out.println("//////////"+cancel_appointment);
-                                        DoctorDataBaseHandler.getConnection().createStatement().executeUpdate(cancel_appointment);
-                                       
-                                        System.out.println("auto canceled");
-                                        
-                                        
-                                    } catch (SQLException ex) {
-                                        Logger.getLogger(FetchDoctorDashBoard.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                        
-				}
-                                
-			}
-		};
-		timer.schedule(tt, 1000, 1000*60);//	delay the task 1 second, and then run task every five seconds
-        
-           
+     
        
        
        return SUCCESS;
