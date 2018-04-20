@@ -40,7 +40,7 @@ public class Addholidays implements ModelDriven<AddHolidaysPojo>, ServletRequest
              int Doctorid=1;
             String id;
             id = session.get("uname").toString();
-            System.out.println(id);
+            
             Connection con=DoctorDataBaseHandler.getConnection();
             Statement st=con.createStatement();
             ResultSet rs=st.executeQuery("select doctor_id from Doctors where doctor_uname='"+id+"';");
@@ -82,7 +82,7 @@ public class Addholidays implements ModelDriven<AddHolidaysPojo>, ServletRequest
             int Doctorid=1;
             String id;
             id = session.get("uname").toString();
-            System.out.println(id);
+            
             Connection con=DoctorDataBaseHandler.getConnection();
             Statement st=con.createStatement();
             ResultSet rs=st.executeQuery("select doctor_id from Doctors where doctor_uname='"+id+"';");
@@ -92,7 +92,7 @@ public class Addholidays implements ModelDriven<AddHolidaysPojo>, ServletRequest
             }
             
             String q="insert into Holidays(doctor_id,date_from,date_to) values("+Doctorid+",'"+ahp.getFrom_date()+"','"+ahp.getTo_date()+"');";
-            System.out.print(q);
+            
             if(DoctorDataBaseHandler.doInsert(q))
                 
                 return "success";

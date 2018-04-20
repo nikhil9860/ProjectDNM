@@ -36,7 +36,7 @@
 									<a href="reg.jsp" class="waves-effect">View Feedbacks</a>
                                         </li>
                                         <li>
-									<a href="reg.jsp" class="waves-effect">View Payment History</a>
+									<a href="ViewPayment" class="waves-effect">View Payment History</a>
 					</li>
 					<li>
 									<a href="reg.jsp" class="waves-effect">Generate Reports</a>

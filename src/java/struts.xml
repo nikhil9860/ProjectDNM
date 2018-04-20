@@ -76,6 +76,25 @@
             <result name="success">viewRating.jsp</result>
         </action>
 
+
+        <!-- CRUD of categories-->
+        <action name="AddCategoriesProcess" class="com.java.admin.classfiles.AddCategories">
+            <result name="success" type="chain" >ViewCategories</result>  
+            <result name="fail" type="chain">ViewCategories</result>
+            
+        </action>
+        <action name="ViewCategories" class="com.java.admin.classfiles.AddCategories" method="ViewCategories">
+            <result name="success">ViewCategories.jsp</result>  
+            <result name="fail" type="chain">AdminDashboard</result>
+            
+        </action>
+        <action name="deleteCategories" class="com.java.admin.classfiles.AddCategories" method="DeleteCategories">
+            <result name="success" type="chain">ViewCategories</result>  
+            <result name="fail" type="chain">ViewCategories</result>
+            
+        </action>
+
+
         
     </package>
     
@@ -146,6 +165,13 @@
         </action>
         
         
+        <!-- View Payment Information-->  
+        <action name="ViewPayment" class="com.java.doctor.classfiles.ViewPayment" method="viewPayment">
+            
+            <result name="success">ViewPayment.jsp</result>
+            <result name="fail">DoctorDashBoard.jsp</result> 
+            
+           </action>
         
     </package>
     
