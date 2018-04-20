@@ -4,6 +4,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
+    
     <%!String total_appointment_count;%>  
     
    

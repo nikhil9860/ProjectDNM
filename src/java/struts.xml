@@ -127,6 +127,26 @@
            </action>
         
         
+        <action name="AddHolidaysProcess" class="com.java.doctor.classfiles.Addholidays" method="AddHolidays">
+            
+               <result name="success" type="chain">ViewHolidays</result> 
+               <result name="fail">DoctorDashBoard.jsp</result>  
+               
+           </action>
+          <action name="ViewHolidays" class="com.java.doctor.classfiles.Addholidays" >
+            
+            <result name="success">AddHolidays.jsp</result>
+            <result name="fail">DoctorDashBoard.jsp</result> 
+            
+           </action>
+           <action name="deleteHolidays" class="com.java.doctor.classfiles.Addholidays" method="deleteHolidays">
+            
+            <result name="success" type="chain">ViewHolidays</result>  
+            <result name="fail">DoctorDashBoard.jsp</result>
+        </action>
+        
+        
+        
     </package>
     
     

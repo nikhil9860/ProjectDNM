@@ -27,11 +27,8 @@
 					<li>
                                             <a href="AddReceptionPage" class="waves-effect"><i class="fa fa-users"></i> Manage Users</a>
 					</li>
-                                                              		<li>
-						<a href="" class="waves-effect"> <i class="fa fa-users"></i> Manage Walk-IN</a>
-						
-                                        </li>
-					
+                                                              	
+			
 					<li>
                                             <a href="AddHolidays.jsp" class="waves-effect"><i class="fa fa-users"></i> Manage Holidays</a>
 					</li>

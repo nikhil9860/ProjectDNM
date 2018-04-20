@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+
 <html lang="en">
  
 <head>
@@ -21,7 +27,7 @@
 
 <body class="fixed-sn elegant-white-skin">
     
-    <form method="post" action="AddHolidays">
+    <form method="post" action="AddHolidaysProcess">
             <div class="container">
 <%@include file="headerDr.jsp"  %>		
 			<div class="col-lg-12 login-form mx-auto float-xs-none">
@@ -38,11 +44,11 @@
                                                     <div class="col-md-6">
                                                     
                                                     <i class="fa fa-calendar prefix"></i>
-                                                    <input type="date" name="fromdate" class="form-control" >
+                                                    <input type="date" name="from_date" class="form-control" >
                                                 </div>
                                                     <div class="col-md-6">
                                                         <i class="fa fa-calendar prefix"></i>
-                                                    <input type="date" name="todate" class="form-control">
+                                                    <input type="date" name="to_date" class="form-control">
                                                 </div>
                                                 </div>
                                                 
@@ -52,33 +58,13 @@
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                <table class="table table-hover">
-												<!--Table head-->
-												<thead>
-													<tr class="product-card">
-														<th>Sr.No.</th>
-														<th>From </th>
-														<th>To</th>
-														
-																											</tr>
-												</thead>
-												<!--/Table head-->
-												<!--Table body-->
-												<tbody>
-													<tr class="none-top-border">
-														<td>1</td>
-														<td>2/1/2017</td>
-                                                                                                                <td>12/1/2017</td>													</tr>
-													<tr>
-														<td>2</td>
-														<td>4/2/2017</td>
-														<td><10/2/2017</td>
-														
-													</tr>
-													</tbody>
-												<!--/Table body-->
-											</table>
-				</div>
+                <display:table id="row" name="allHolidays" pagesize="3" requestURI="ViewHolidays" class="table table-hover">
+            
+            <display:column property="from_date" sortable="true" title="From Date"></display:column>
+            <display:column property="to_date" sortable="true" title="To date"></display:column>
+            <display:column title="action"><a href="deleteHolidays?holiday_id=${row.hoilday_id}">delete</a></display:column>
+                                 
+        </display:table>				</div>
                                                 </div>
 
 				</div>

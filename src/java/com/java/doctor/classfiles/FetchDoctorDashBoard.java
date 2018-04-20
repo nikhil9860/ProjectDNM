@@ -14,7 +14,12 @@ import com.opensymphony.xwork2.ModelDriven;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -109,9 +114,7 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
        String doctor_uname=session.get("uname").toString();
        
          int count = 0;
-       
-       
-        
+          
          
         String appointment_details = "SELECT Patient.patient_name,Patient.patient_gender,Patient.patient_age,Patient.patient_location,Patient.status,Patient.appointment_date FROM Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id WHERE Patient.appointment_date='"+appointment_pojo.getAppointment_date()+"' And Patient.status='live' AND Doctors.doctor_uname='"+doctor_uname+"'";
            
@@ -137,12 +140,43 @@ public class FetchDoctorDashBoard extends ActionSupport implements ModelDriven<P
                 total_appointment_count= total_appointments_resultset.getString(1);
             }
            
-            System.out.println("/////////"+total_appointments);
-         System.out.println("////////"+total_appointment_count);      
+               
              req.setAttribute("total_appointment",total_appointment_count);
            
            
            
+     Timer timer = new Timer();
+		TimerTask tt = new TimerTask(){
+                    
+			public void run(){
+                                
+                                
+                            
+				Calendar cal = Calendar.getInstance(); //this is the method you should use, not the Date(), because it is desperated.
+ 
+				int hour = cal.get(Calendar.HOUR_OF_DAY);//get the hour number of the day, from 0 to 23
+                                
+				if(hour == 16){
+                                    
+                                    System.out.println("//// checking");
+                                    try {
+                                        String cancel_appointment = "UPDATE Patient inner JOIN Doctors ON Patient.doctor_id=Doctors.doctor_id SET status = 'cancel' WHERE Doctors.doctor_uname='"+doctor_uname+"' AND appointment_date <'"+date+"'";
+                                        System.out.println("//////////"+cancel_appointment);
+                                        DoctorDataBaseHandler.getConnection().createStatement().executeUpdate(cancel_appointment);
+                                       
+                                        System.out.println("auto canceled");
+                                        
+                                        
+                                    } catch (SQLException ex) {
+                                        Logger.getLogger(FetchDoctorDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                        
+				}
+                                
+			}
+		};
+		timer.schedule(tt, 1000, 1000*60);//	delay the task 1 second, and then run task every five seconds
+        
            
        
        
